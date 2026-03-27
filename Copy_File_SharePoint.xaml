@@ -1,0 +1,1249 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:umaf="clr-namespace:UiPath.MicrosoftOffice365.Activities.Files;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:umafe="clr-namespace:UiPath.MicrosoftOffice365.Activities.Files.Enums;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:umafm="clr-namespace:UiPath.MicrosoftOffice365.Activities.Files.Models;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:umfm="clr-namespace:UiPath.MicrosoftOffice365.Files.Models;assembly=UiPath.MicrosoftOffice365" xmlns:umsm="clr-namespace:UiPath.MicrosoftOffice365.Sharepoint.Models;assembly=UiPath.MicrosoftOffice365" xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.MicrosoftOffice365.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Files.Models</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Enums</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Filters</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Enums</x:String>
+      <x:String>UiPath.Shared.Activities.Utils</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Models</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files</x:String>
+      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.MicrosoftOffice365</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Sharepoint.Filters</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Sharepoint.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Sharepoint.Models</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Sharepoint.Models.Filters</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Sharepoint.Contracts.Enums</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Filters</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Database</x:String>
+      <x:String>UiPath.Database.Activities</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.Activities.System.Collections</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>UiPath.Platform</x:String>
+      <x:String>Microsoft.Graph</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Enums</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Excel.Enums</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Excel</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Files.Enums</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Utilities</x:String>
+      <x:String>UiPath.Productivity.Activities.Diagnostics</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Files.Triggers</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Sharepoint.Models</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Sharepoint.Enums</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Sharepoint.Triggers</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Models</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.Database</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>UiPath.CodedWorkflows</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>netstandard</AssemblyReference>
+      <AssemblyReference>Microsoft.Graph.Core</AssemblyReference>
+      <AssemblyReference>Microsoft.Graph</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="1194.6666666666667,4398.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="umfm:O365DriveRemoteItem" Name="lstFolder" />
+      <Variable x:TypeArguments="umfm:O365DriveRemoteItem[]" Name="lstFolderArray" />
+      <Variable x:TypeArguments="x:String" Name="strFolderName" />
+      <Variable x:TypeArguments="umfm:O365DriveRemoteItem[]" Name="lstMasterFolder" />
+      <Variable x:TypeArguments="umfm:O365DriveRemoteItem[]" Name="lstProjectFolder" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtFilesDetail" />
+      <Variable x:TypeArguments="x:Boolean" Name="blDateCheck" />
+      <Variable x:TypeArguments="x:String" Name="strFolderPath" />
+      <Variable x:TypeArguments="scg:IEnumerable(upr:IResource)" Name="IresourceFile" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="562,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,236" sap2010:WorkflowViewState.IdRef="Sequence_32">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <umaf:GetFileListConnections AllColumns="{x:Array Type=umsm:Office365SharepointListColumnSlim}" BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentItemId="{x:Null}" BrowserSiteUrl="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" DynamicMetadataFilter="{x:Null}" Filter="{x:Null}" FreeTextFilter="{x:Null}" ItemIdBackup="{x:Reference __ReferenceID0}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" MetadataFilter="{x:Null}" QueryFilter="{x:Null}" SharepointLibraryItemFriendlyName="{x:Null}" SharepointListId="{x:Null}" SharepointSiteUrl="{x:Null}" SimpleSearch="{x:Null}" AuthScopesInvalid="False" ConnectionId="447fba6e-4af6-4405-a86f-9dc4a7a2946c" DisplayName="Get File or Folder List" sap:VirtualizedContainerService.HintSize="416,176" sap2010:WorkflowViewState.IdRef="GetFileListConnections_1" IncludeSubfolders="False" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="https://baraadv.sharepoint.com/sites/Test_Sharepoint/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FTest%5FSharepoint%2FShared%20Documents%2FTNS&amp;viewid=bf2b471a%2D2453%2D448a%2Da877%2D9a46b0f0740b" MaxResults="200" Result="[lstFolderArray]" SearchMode="UseSimple" TrimDuplicates="False" UseConnectionService="True" WhatToReturn="[UiPath.MicrosoftOffice365.Enums.FindFilesAndFoldersResultType.Folders]" WorkingWithDocumentLibrary="False">
+            <umaf:GetFileListConnections.DriveItemArgument>
+              <umafm:DriveItemArgument BrowserDriveId="{x:Null}" BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentDriveId="{x:Null}" BrowserParentDriveName="{x:Null}" BrowserParentItemFriendlyName="{x:Null}" BrowserParentItemId="{x:Null}" BrowserParentPath="{x:Null}" BrowserSiteUrl="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionDescriptor="{x:Null}" FullPathHint="{x:Null}" Item="{x:Null}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" ReferenceId="{x:Null}" ConnectionKey="447fba6e-4af6-4405-a86f-9dc4a7a2946c" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="https://baraadv.sharepoint.com/sites/Test_Sharepoint/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FTest%5FSharepoint%2FShared%20Documents%2FTNS&amp;viewid=bf2b471a%2D2453%2D448a%2Da877%2D9a46b0f0740b" ParentFullPathHint="">
+                <umafm:DriveItemArgument.ItemIdBackup>
+                  <usau:BackupSlot x:TypeArguments="umafe:EDriveItemMode" x:Name="__ReferenceID0" StoredValue="ItemUrl">
+                    <usau:BackupSlot.BackupValues>
+                      <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="6">
+                        <InArgument x:TypeArguments="x:String">01ORMITO56Y2GOVW7725BZO354PWSELRRZ</InArgument>
+                        <InArgument x:TypeArguments="x:String">OneDrive</InArgument>
+                        <InArgument x:TypeArguments="x:String">b!BkazB8ZIxU62pKtzFPYqDpERanXx7RpIsK9c35len7zUqq8dO2F7RYBq7tYhOpBE</InArgument>
+                        <InArgument x:TypeArguments="x:String">root</InArgument>
+                        <InArgument x:TypeArguments="x:String">https://baraadv-my.sharepoint.com/personal/phurin_s_baraadv_co_th/Documents</InArgument>
+                        <InArgument x:TypeArguments="x:String">https://baraadv-my.sharepoint.com/personal/phurin_s_baraadv_co_th/Documents</InArgument>
+                      </scg:List>
+                    </usau:BackupSlot.BackupValues>
+                  </usau:BackupSlot>
+                </umafm:DriveItemArgument.ItemIdBackup>
+              </umafm:DriveItemArgument>
+            </umaf:GetFileListConnections.DriveItemArgument>
+            <umaf:GetFileListConnections.FilterSelectionBackup>
+              <usau:BackupSlot x:TypeArguments="umafe:SearchSelectionMode" StoredValue="UseSimple">
+                <usau:BackupSlot.BackupValues>
+                  <scg:Dictionary x:TypeArguments="umafe:SearchSelectionMode, scg:List(x:Object)" />
+                </usau:BackupSlot.BackupValues>
+              </usau:BackupSlot>
+            </umaf:GetFileListConnections.FilterSelectionBackup>
+          </umaf:GetFileListConnections>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <Assign sap:VirtualizedContainerService.HintSize="562,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Boolean">[blDateCheck]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Boolean">[(Today.Day &gt;= 1 AndAlso Today.Day &lt;= 7) Or Today.Day &gt;=29]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="562,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[strFolderName]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[Now.ToString("MMM-yyyy")]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="562,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_6">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[strFolderName]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[Now.ToString("dd/MM/yyyy HH:mm")]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="562,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[strFolderName]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[New DateTime(Now.Year, Now.Month, 1).AddMonths(-1).ToString]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="562,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_3">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[strFolderName]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[Now.Date.AddMonths(-1).ToString("MMM-yy")]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="562,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="560,2021.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_11">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ForEach x:TypeArguments="umfm:O365DriveRemoteItem" CurrentIndex="{x:Null}" DisplayName="For Each currentO365DriveRemoteItem" sap:VirtualizedContainerService.HintSize="526,1961.3333333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[lstFolderArray]">
+            <ui:ForEach.Body>
+              <ActivityAction x:TypeArguments="umfm:O365DriveRemoteItem">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="umfm:O365DriveRemoteItem" Name="currentO365DriveRemoteItem" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="524,1839.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="490,1613.3333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                    <TryCatch.Try>
+                      <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="488,340" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <umaf:CreateFolderConnections BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentItemId="{x:Null}" BrowserSiteUrl="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ItemIdBackup="{x:Reference __ReferenceID1}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" Result="{x:Null}" AuthScopesInvalid="False" ConflictResolution="Fail" ConnectionId="447fba6e-4af6-4405-a86f-9dc4a7a2946c" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="454,280" sap2010:WorkflowViewState.IdRef="CreateFolderConnections_3" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="[currentO365DriveRemoteItem.Url]" NewFolderName="[strFolderName]" UseConnectionService="True">
+                          <umaf:CreateFolderConnections.DriveItemArgument>
+                            <umafm:DriveItemArgument BrowserDriveId="{x:Null}" BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentDriveId="{x:Null}" BrowserParentDriveName="{x:Null}" BrowserParentItemFriendlyName="{x:Null}" BrowserParentItemId="{x:Null}" BrowserParentPath="{x:Null}" BrowserSiteUrl="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionDescriptor="{x:Null}" FullPathHint="{x:Null}" Item="{x:Null}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" ReferenceId="{x:Null}" ConnectionKey="447fba6e-4af6-4405-a86f-9dc4a7a2946c" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="[currentO365DriveRemoteItem.Url]" ParentFullPathHint="">
+                              <umafm:DriveItemArgument.ItemIdBackup>
+                                <usau:BackupSlot x:TypeArguments="umafe:EDriveItemMode" x:Name="__ReferenceID1" StoredValue="ItemUrl">
+                                  <usau:BackupSlot.BackupValues>
+                                    <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="6">
+                                      <InArgument x:TypeArguments="x:String" />
+                                      <InArgument x:TypeArguments="x:String" />
+                                      <InArgument x:TypeArguments="x:String" />
+                                      <InArgument x:TypeArguments="x:String" />
+                                      <InArgument x:TypeArguments="x:String" />
+                                      <InArgument x:TypeArguments="x:String" />
+                                    </scg:List>
+                                  </usau:BackupSlot.BackupValues>
+                                </usau:BackupSlot>
+                              </umafm:DriveItemArgument.ItemIdBackup>
+                            </umafm:DriveItemArgument>
+                          </umaf:CreateFolderConnections.DriveItemArgument>
+                        </umaf:CreateFolderConnections>
+                      </Sequence>
+                    </TryCatch.Try>
+                    <TryCatch.Catches>
+                      <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                        <ActivityAction x:TypeArguments="s:Exception">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="488,1009.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <umaf:GetFileListConnections AllColumns="{x:Array Type=umsm:Office365SharepointListColumnSlim}" BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentItemId="{x:Null}" BrowserSiteUrl="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" DynamicMetadataFilter="{x:Null}" Filter="{x:Null}" FreeTextFilter="{x:Null}" ItemIdBackup="{x:Reference __ReferenceID2}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" MetadataFilter="{x:Null}" QueryFilter="{x:Null}" SharepointLibraryItemFriendlyName="{x:Null}" SharepointListId="{x:Null}" SharepointSiteUrl="{x:Null}" SimpleSearch="{x:Null}" AuthScopesInvalid="False" ConnectionId="447fba6e-4af6-4405-a86f-9dc4a7a2946c" DisplayName="Get File or Folder List" sap:VirtualizedContainerService.HintSize="454,185.33333333333334" sap2010:WorkflowViewState.IdRef="GetFileListConnections_2" IncludeSubfolders="False" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="[currentO365DriveRemoteItem.Url]" MaxResults="200" Result="[lstFolderArray]" SearchMode="UseSimple" TrimDuplicates="False" UseConnectionService="True" WhatToReturn="[UiPath.MicrosoftOffice365.Enums.FindFilesAndFoldersResultType.Folders]" WorkingWithDocumentLibrary="False">
+                              <umaf:GetFileListConnections.DriveItemArgument>
+                                <umafm:DriveItemArgument BrowserDriveId="{x:Null}" BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentDriveId="{x:Null}" BrowserParentDriveName="{x:Null}" BrowserParentItemFriendlyName="{x:Null}" BrowserParentItemId="{x:Null}" BrowserParentPath="{x:Null}" BrowserSiteUrl="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionDescriptor="{x:Null}" FullPathHint="{x:Null}" Item="{x:Null}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" ReferenceId="{x:Null}" ConnectionKey="447fba6e-4af6-4405-a86f-9dc4a7a2946c" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="[currentO365DriveRemoteItem.Url]" ParentFullPathHint="">
+                                  <umafm:DriveItemArgument.ItemIdBackup>
+                                    <usau:BackupSlot x:TypeArguments="umafe:EDriveItemMode" x:Name="__ReferenceID2" StoredValue="ItemUrl">
+                                      <usau:BackupSlot.BackupValues>
+                                        <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="6">
+                                          <InArgument x:TypeArguments="x:String">01ORMITO56Y2GOVW7725BZO354PWSELRRZ</InArgument>
+                                          <InArgument x:TypeArguments="x:String">OneDrive</InArgument>
+                                          <InArgument x:TypeArguments="x:String">b!BkazB8ZIxU62pKtzFPYqDpERanXx7RpIsK9c35len7zUqq8dO2F7RYBq7tYhOpBE</InArgument>
+                                          <InArgument x:TypeArguments="x:String">root</InArgument>
+                                          <InArgument x:TypeArguments="x:String">https://baraadv-my.sharepoint.com/personal/phurin_s_baraadv_co_th/Documents</InArgument>
+                                          <InArgument x:TypeArguments="x:String">https://baraadv-my.sharepoint.com/personal/phurin_s_baraadv_co_th/Documents</InArgument>
+                                        </scg:List>
+                                      </usau:BackupSlot.BackupValues>
+                                    </usau:BackupSlot>
+                                  </umafm:DriveItemArgument.ItemIdBackup>
+                                </umafm:DriveItemArgument>
+                              </umaf:GetFileListConnections.DriveItemArgument>
+                              <umaf:GetFileListConnections.FilterSelectionBackup>
+                                <usau:BackupSlot x:TypeArguments="umafe:SearchSelectionMode" StoredValue="UseSimple">
+                                  <usau:BackupSlot.BackupValues>
+                                    <scg:Dictionary x:TypeArguments="umafe:SearchSelectionMode, scg:List(x:Object)" />
+                                  </usau:BackupSlot.BackupValues>
+                                </usau:BackupSlot>
+                              </umaf:GetFileListConnections.FilterSelectionBackup>
+                            </umaf:GetFileListConnections>
+                            <ui:ForEach x:TypeArguments="umfm:O365DriveRemoteItem" CurrentIndex="{x:Null}" DisplayName="For Each currentO365DriveRemoteItem" sap:VirtualizedContainerService.HintSize="454,764" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[lstFolderArray]">
+                              <ui:ForEach.Body>
+                                <ActivityAction x:TypeArguments="umfm:O365DriveRemoteItem">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="umfm:O365DriveRemoteItem" Name="currentO365DriveRemoteItem" />
+                                  </ActivityAction.Argument>
+                                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="452,642" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <If Condition="[currentO365DriveRemoteItem.Name = strFolderName]" sap:VirtualizedContainerService.HintSize="418,582" sap2010:WorkflowViewState.IdRef="If_1">
+                                      <If.Then>
+                                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,226" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,166" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[&quot;Yes&quot;]" />
+                                        </Sequence>
+                                      </If.Then>
+                                      <If.Else>
+                                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,226" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,166" sap2010:WorkflowViewState.IdRef="LogMessage_4" Message="[&quot;No&quot;]" />
+                                        </Sequence>
+                                      </If.Else>
+                                    </If>
+                                  </Sequence>
+                                </ActivityAction>
+                              </ui:ForEach.Body>
+                            </ui:ForEach>
+                          </Sequence>
+                        </ActivityAction>
+                      </Catch>
+                    </TryCatch.Catches>
+                    <TryCatch.Finally>
+                      <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="488,90" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </TryCatch.Finally>
+                  </TryCatch>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="490,166" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;TEST&quot;]" />
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEach.Body>
+          </ui:ForEach>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:BuildDataTable DataTable="[dtFilesDetail]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="562,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;ID&quot; msdata:AutoIncrement=&quot;true&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;File_Name&quot; msdata:Caption=&quot;&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;255&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;File_Url&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Project_Folder&quot; msdata:Caption=&quot;&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;255&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+    <umaf:GetFileListConnections AllColumns="{x:Array Type=umsm:Office365SharepointListColumnSlim}" BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentItemId="{x:Null}" BrowserSiteUrl="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" DynamicMetadataFilter="{x:Null}" Filter="{x:Null}" FreeTextFilter="{x:Null}" ItemIdBackup="{x:Reference __ReferenceID3}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" MetadataFilter="{x:Null}" QueryFilter="{x:Null}" SharepointLibraryItemFriendlyName="{x:Null}" SharepointListId="{x:Null}" SharepointSiteUrl="{x:Null}" SimpleSearch="{x:Null}" AuthScopesInvalid="False" ConnectionId="447fba6e-4af6-4405-a86f-9dc4a7a2946c" DisplayName="Get File or Folder List" sap:VirtualizedContainerService.HintSize="562,186.66666666666666" sap2010:WorkflowViewState.IdRef="GetFileListConnections_3" IncludeSubfolders="False" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="https://baraadv.sharepoint.com/sites/Test_Sharepoint/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FTest%5FSharepoint%2FShared%20Documents%2FTNS%2FMasterFile&amp;viewid=bf2b471a%2D2453%2D448a%2Da877%2D9a46b0f0740b" MaxResults="200" Result="[lstMasterFolder]" SearchMode="UseSimple" TrimDuplicates="False" UseConnectionService="True" WhatToReturn="[UiPath.MicrosoftOffice365.Enums.FindFilesAndFoldersResultType.Folders]" WorkingWithDocumentLibrary="False">
+      <umaf:GetFileListConnections.DriveItemArgument>
+        <umafm:DriveItemArgument BrowserDriveId="{x:Null}" BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentDriveId="{x:Null}" BrowserParentDriveName="{x:Null}" BrowserParentItemFriendlyName="{x:Null}" BrowserParentItemId="{x:Null}" BrowserParentPath="{x:Null}" BrowserSiteUrl="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionDescriptor="{x:Null}" FullPathHint="{x:Null}" Item="{x:Null}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" ReferenceId="{x:Null}" ConnectionKey="447fba6e-4af6-4405-a86f-9dc4a7a2946c" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="https://baraadv.sharepoint.com/sites/Test_Sharepoint/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FTest%5FSharepoint%2FShared%20Documents%2FTNS%2FMasterFile&amp;viewid=bf2b471a%2D2453%2D448a%2Da877%2D9a46b0f0740b" ParentFullPathHint="">
+          <umafm:DriveItemArgument.ItemIdBackup>
+            <usau:BackupSlot x:TypeArguments="umafe:EDriveItemMode" x:Name="__ReferenceID3" StoredValue="ItemUrl">
+              <usau:BackupSlot.BackupValues>
+                <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="6">
+                  <InArgument x:TypeArguments="x:String">01ORMITO56Y2GOVW7725BZO354PWSELRRZ</InArgument>
+                  <InArgument x:TypeArguments="x:String">OneDrive</InArgument>
+                  <InArgument x:TypeArguments="x:String">b!BkazB8ZIxU62pKtzFPYqDpERanXx7RpIsK9c35len7zUqq8dO2F7RYBq7tYhOpBE</InArgument>
+                  <InArgument x:TypeArguments="x:String">root</InArgument>
+                  <InArgument x:TypeArguments="x:String">https://baraadv-my.sharepoint.com/personal/phurin_s_baraadv_co_th/Documents</InArgument>
+                  <InArgument x:TypeArguments="x:String">https://baraadv-my.sharepoint.com/personal/phurin_s_baraadv_co_th/Documents</InArgument>
+                </scg:List>
+              </usau:BackupSlot.BackupValues>
+            </usau:BackupSlot>
+          </umafm:DriveItemArgument.ItemIdBackup>
+        </umafm:DriveItemArgument>
+      </umaf:GetFileListConnections.DriveItemArgument>
+      <umaf:GetFileListConnections.FilterSelectionBackup>
+        <usau:BackupSlot x:TypeArguments="umafe:SearchSelectionMode" StoredValue="UseSimple">
+          <usau:BackupSlot.BackupValues>
+            <scg:Dictionary x:TypeArguments="umafe:SearchSelectionMode, scg:List(x:Object)" />
+          </usau:BackupSlot.BackupValues>
+        </usau:BackupSlot>
+      </umaf:GetFileListConnections.FilterSelectionBackup>
+    </umaf:GetFileListConnections>
+    <Assign sap:VirtualizedContainerService.HintSize="562,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[strFolderPath]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">C:\Users\PhurinS\Documents\UiPath\PoohTEST1\ConfigFile\Temp</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="562,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_6">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="524,1523.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_38">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ForEach x:TypeArguments="umfm:O365DriveRemoteItem" CurrentIndex="{x:Null}" DisplayName="For Each currentO365DriveRemoteItemMasterFolder" sap:VirtualizedContainerService.HintSize="490,1463.3333333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_7" Values="[lstMasterFolder]">
+            <ui:ForEach.Body>
+              <ActivityAction x:TypeArguments="umfm:O365DriveRemoteItem">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="umfm:O365DriveRemoteItem" Name="currentO365DriveRemoteItemMasterFolder" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="488,1340.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="umfm:O365DriveRemoteItem[]" Name="lstMasterFile" />
+                    <Variable x:TypeArguments="umfm:O365DriveRemoteItem[]" Name="lstMasterProjectFolder" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <umaf:GetFileListConnections AllColumns="{x:Array Type=umsm:Office365SharepointListColumnSlim}" BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentItemId="{x:Null}" BrowserSiteUrl="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" DynamicMetadataFilter="{x:Null}" Filter="{x:Null}" FreeTextFilter="{x:Null}" ItemIdBackup="{x:Reference __ReferenceID4}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" MetadataFilter="{x:Null}" QueryFilter="{x:Null}" SharepointLibraryItemFriendlyName="{x:Null}" SharepointListId="{x:Null}" SharepointSiteUrl="{x:Null}" SimpleSearch="{x:Null}" AuthScopesInvalid="False" ConnectionId="447fba6e-4af6-4405-a86f-9dc4a7a2946c" DisplayName="Get File or Folder List" sap:VirtualizedContainerService.HintSize="454,186.66666666666666" sap2010:WorkflowViewState.IdRef="GetFileListConnections_7" IncludeSubfolders="False" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="[currentO365DriveRemoteItemMasterFolder.Url]" MaxResults="200" Result="[lstMasterFile]" SearchMode="UseSimple" TrimDuplicates="False" UseConnectionService="True" WhatToReturn="Files" WorkingWithDocumentLibrary="False">
+                    <umaf:GetFileListConnections.DriveItemArgument>
+                      <umafm:DriveItemArgument BrowserDriveId="{x:Null}" BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentDriveId="{x:Null}" BrowserParentDriveName="{x:Null}" BrowserParentItemFriendlyName="{x:Null}" BrowserParentItemId="{x:Null}" BrowserParentPath="{x:Null}" BrowserSiteUrl="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionDescriptor="{x:Null}" FullPathHint="{x:Null}" Item="{x:Null}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" ReferenceId="{x:Null}" ConnectionKey="447fba6e-4af6-4405-a86f-9dc4a7a2946c" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="[currentO365DriveRemoteItemMasterFolder.Url]" ParentFullPathHint="">
+                        <umafm:DriveItemArgument.ItemIdBackup>
+                          <usau:BackupSlot x:TypeArguments="umafe:EDriveItemMode" x:Name="__ReferenceID4" StoredValue="ItemUrl">
+                            <usau:BackupSlot.BackupValues>
+                              <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="6">
+                                <InArgument x:TypeArguments="x:String" />
+                                <InArgument x:TypeArguments="x:String" />
+                                <InArgument x:TypeArguments="x:String" />
+                                <InArgument x:TypeArguments="x:String" />
+                                <InArgument x:TypeArguments="x:String" />
+                                <InArgument x:TypeArguments="x:String" />
+                              </scg:List>
+                            </usau:BackupSlot.BackupValues>
+                          </usau:BackupSlot>
+                        </umafm:DriveItemArgument.ItemIdBackup>
+                      </umafm:DriveItemArgument>
+                    </umaf:GetFileListConnections.DriveItemArgument>
+                    <umaf:GetFileListConnections.FilterSelectionBackup>
+                      <usau:BackupSlot x:TypeArguments="umafe:SearchSelectionMode" StoredValue="UseSimple">
+                        <usau:BackupSlot.BackupValues>
+                          <scg:Dictionary x:TypeArguments="umafe:SearchSelectionMode, scg:List(x:Object)" />
+                        </usau:BackupSlot.BackupValues>
+                      </usau:BackupSlot>
+                    </umaf:GetFileListConnections.FilterSelectionBackup>
+                  </umaf:GetFileListConnections>
+                  <ui:ForEach x:TypeArguments="umfm:O365DriveRemoteItem" CurrentIndex="{x:Null}" DisplayName="For Each currentO365DriveRemoteItemMasterFile" sap:VirtualizedContainerService.HintSize="454,1094" sap2010:WorkflowViewState.IdRef="ForEach`1_10" Values="[lstMasterFile]">
+                    <ui:ForEach.Body>
+                      <ActivityAction x:TypeArguments="umfm:O365DriveRemoteItem">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="umfm:O365DriveRemoteItem" Name="currentO365DriveRemoteItemMasterFile" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="452,971.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="418,863.3333333333334" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                            <TryCatch.Try>
+                              <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="416,237.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <umaf:DownloadFileConnections BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentItemId="{x:Null}" BrowserSiteUrl="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ItemIdBackup="{x:Reference __ReferenceID5}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" NewResult="{x:Null}" Result="{x:Null}" AuthScopesInvalid="False" ConflictResolution="Fail" ConnectionId="447fba6e-4af6-4405-a86f-9dc4a7a2946c" ConvertToPdf="False" DestinationPath="[&quot;C:\POOH\TEMP\&quot;+currentO365DriveRemoteItemMasterFolder.Name +&quot;\&quot; + currentO365DriveRemoteItemMasterFile.FullName.Replace(&quot;MMMYY&quot;,&quot;OCT25&quot;)]" DisplayName="Download File" sap:VirtualizedContainerService.HintSize="382,177.33333333333334" sap2010:WorkflowViewState.IdRef="DownloadFileConnections_2" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="[currentO365DriveRemoteItemMasterFile.Uri]" UseConnectionService="True">
+                                  <umaf:DownloadFileConnections.DriveItemArgument>
+                                    <umafm:DriveItemArgument BrowserDriveId="{x:Null}" BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentDriveId="{x:Null}" BrowserParentDriveName="{x:Null}" BrowserParentItemFriendlyName="{x:Null}" BrowserParentItemId="{x:Null}" BrowserParentPath="{x:Null}" BrowserSiteUrl="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionDescriptor="{x:Null}" ConnectionKey="{x:Null}" Item="{x:Null}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" ReferenceId="{x:Null}" FullPathHint="" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="[currentO365DriveRemoteItemMasterFile.Uri]" ParentFullPathHint="">
+                                      <umafm:DriveItemArgument.ItemIdBackup>
+                                        <usau:BackupSlot x:TypeArguments="umafe:EDriveItemMode" x:Name="__ReferenceID5" StoredValue="ItemUrl">
+                                          <usau:BackupSlot.BackupValues>
+                                            <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="6">
+                                              <x:Null />
+                                              <x:Null />
+                                              <x:Null />
+                                              <x:Null />
+                                              <x:Null />
+                                              <x:Null />
+                                            </scg:List>
+                                          </usau:BackupSlot.BackupValues>
+                                        </usau:BackupSlot>
+                                      </umafm:DriveItemArgument.ItemIdBackup>
+                                    </umafm:DriveItemArgument>
+                                  </umaf:DownloadFileConnections.DriveItemArgument>
+                                </umaf:DownloadFileConnections>
+                              </Sequence>
+                            </TryCatch.Try>
+                            <TryCatch.Catches>
+                              <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                                <ActivityAction x:TypeArguments="s:Exception">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                  </ActivityAction.Argument>
+                                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,361.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="382,124" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[&quot;C:\POOH\TEMP\&quot;+currentO365DriveRemoteItemMasterFolder.Name]" />
+                                    <umaf:DownloadFileConnections BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentItemId="{x:Null}" BrowserSiteUrl="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ItemIdBackup="{x:Reference __ReferenceID6}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" NewResult="{x:Null}" Result="{x:Null}" AuthScopesInvalid="False" ConflictResolution="Fail" ConnectionId="447fba6e-4af6-4405-a86f-9dc4a7a2946c" ConvertToPdf="False" DestinationPath="[&quot;C:\POOH\TEMP\&quot;+currentO365DriveRemoteItemMasterFolder.Name +&quot;\&quot; + currentO365DriveRemoteItemMasterFile.FullName.Replace(&quot;MMMYY&quot;,&quot;OCT25&quot;)]" DisplayName="Download File" sap:VirtualizedContainerService.HintSize="382,177.33333333333334" sap2010:WorkflowViewState.IdRef="DownloadFileConnections_3" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="[currentO365DriveRemoteItemMasterFile.Uri]" UseConnectionService="True">
+                                      <umaf:DownloadFileConnections.DriveItemArgument>
+                                        <umafm:DriveItemArgument BrowserDriveId="{x:Null}" BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentDriveId="{x:Null}" BrowserParentDriveName="{x:Null}" BrowserParentItemFriendlyName="{x:Null}" BrowserParentItemId="{x:Null}" BrowserParentPath="{x:Null}" BrowserSiteUrl="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionDescriptor="{x:Null}" ConnectionKey="{x:Null}" Item="{x:Null}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" ReferenceId="{x:Null}" FullPathHint="" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="[currentO365DriveRemoteItemMasterFile.Uri]" ParentFullPathHint="">
+                                          <umafm:DriveItemArgument.ItemIdBackup>
+                                            <usau:BackupSlot x:TypeArguments="umafe:EDriveItemMode" x:Name="__ReferenceID6" StoredValue="ItemUrl">
+                                              <usau:BackupSlot.BackupValues>
+                                                <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="6">
+                                                  <x:Null />
+                                                  <x:Null />
+                                                  <x:Null />
+                                                  <x:Null />
+                                                  <x:Null />
+                                                  <x:Null />
+                                                </scg:List>
+                                              </usau:BackupSlot.BackupValues>
+                                            </usau:BackupSlot>
+                                          </umafm:DriveItemArgument.ItemIdBackup>
+                                        </umafm:DriveItemArgument>
+                                      </umaf:DownloadFileConnections.DriveItemArgument>
+                                    </umaf:DownloadFileConnections>
+                                  </Sequence>
+                                </ActivityAction>
+                              </Catch>
+                            </TryCatch.Catches>
+                            <TryCatch.Finally>
+                              <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="416,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Sequence>
+                            </TryCatch.Finally>
+                          </TryCatch>
+                          <ui:CommentOut DisplayName="Comment Out (Add Data Row)" sap:VirtualizedContainerService.HintSize="418,48" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+                            <ui:CommentOut.Body>
+                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,274" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{ Nothing,currentO365DriveRemoteItemMasterFile.Name,currentO365DriveRemoteItemMasterFile.URL,currentO365DriveRemoteItemMasterFolder.Name}]" DataTable="[dtFilesDetail]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="416,214" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                              </Sequence>
+                            </ui:CommentOut.Body>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:CommentOut>
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:ForEach.Body>
+                  </ui:ForEach>
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEach.Body>
+          </ui:ForEach>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:ForEachFolderX DisplayName="For Each Folder in Folder" Folder="C:\POOH\TEMP" sap:VirtualizedContainerService.HintSize="562,1235.3333333333333" sap2010:WorkflowViewState.IdRef="ForEachFolderX_1" IncludeSubFolders="False" OrderBy="NameAscFirst" SkipFoldersWithoutPermission="False">
+      <ui:ForEachFolderX.Body>
+        <ActivityAction x:TypeArguments="si:DirectoryInfo, x:Int32">
+          <ActivityAction.Argument1>
+            <DelegateInArgument x:TypeArguments="si:DirectoryInfo" Name="CurrentFolder" />
+          </ActivityAction.Argument1>
+          <ActivityAction.Argument2>
+            <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
+          </ActivityAction.Argument2>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="518,933.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_40">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ForEachFileX DisplayName="For Each File in Folder" Folder="[CurrentFolder.FullName]" sap:VirtualizedContainerService.HintSize="484,873.3333333333334" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+              <ui:ForEachFileX.Body>
+                <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
+                  <ActivityAction.Argument1>
+                    <DelegateInArgument x:TypeArguments="si:FileInfo" Name="CurrentFile" />
+                  </ActivityAction.Argument1>
+                  <ActivityAction.Argument2>
+                    <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
+                  </ActivityAction.Argument2>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,580.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="s:String[]" Name="FilePath" />
+                      <Variable x:TypeArguments="upr:ILocalResource" Name="ilrFile" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="416,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_7">
+                      <ui:CommentOut.Body>
+                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="512.6666666666666,230" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.6666666666667,170" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                            <ui:MultipleAssign.AssignOperations>
+                              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                                  <ui:AssignOperation.To>
+                                    <OutArgument x:TypeArguments="s:String[]">[FilePath]</OutArgument>
+                                  </ui:AssignOperation.To>
+                                  <ui:AssignOperation.Value>
+                                    <InArgument x:TypeArguments="s:String[]">[System.IO.Directory.GetFiles(CurrentFolder.FullName)]</InArgument>
+                                  </ui:AssignOperation.Value>
+                                </ui:AssignOperation>
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                                  <ui:AssignOperation.To>
+                                    <OutArgument x:TypeArguments="scg:IEnumerable(upr:IResource)">[IresourceFile]</OutArgument>
+                                  </ui:AssignOperation.To>
+                                  <ui:AssignOperation.Value>
+                                    <InArgument x:TypeArguments="scg:IEnumerable(upr:IResource)" xml:space="preserve">[New List(Of Resource) From {
+    New Resource With {
+        .Name = "mydoc.pdf",
+        .Content = System.IO.File.ReadAllBytes("C:\Files\mydoc.pdf")
+    }
+}]</InArgument>
+                                  </ui:AssignOperation.Value>
+                                </ui:AssignOperation>
+                              </scg:List>
+                            </ui:MultipleAssign.AssignOperations>
+                          </ui:MultipleAssign>
+                        </Sequence>
+                      </ui:CommentOut.Body>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:CommentOut>
+                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="416,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_8">
+                      <ui:CommentOut.Body>
+                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="468,167.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Assign sap:VirtualizedContainerService.HintSize="434,107.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_7">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="scg:IEnumerable(upr:IResource)">[IresourceFile]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="scg:IEnumerable(upr:IResource)">[New UiPath.MicrosoftOffice365.Models.FileResource("C:\temp\invoice.pdf")]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </ui:CommentOut.Body>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:CommentOut>
+                    <ui:PathExists Exists="{x:Null}" DisplayName="Get Local File or Folder" sap:VirtualizedContainerService.HintSize="416,176" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[CurrentFile.FullName]" PathType="File" Resource="[ilrFile]" />
+                    <umaf:UploadFilesConnections AllResults="{x:Null}" BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentItemId="{x:Null}" BrowserSiteUrl="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" FilesList="{x:Null}" FirstResult="{x:Null}" ItemIdBackup="{x:Reference __ReferenceID7}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" Metadata="{x:Null}" SingleFileToUpload="{x:Null}" AuthScopesInvalid="False" ConflictResolution="Replace" ConnectionId="447fba6e-4af6-4405-a86f-9dc4a7a2946c" DisplayName="Upload Files" FilesInputMode="MultipleByVariable" sap:VirtualizedContainerService.HintSize="416,230" sap2010:WorkflowViewState.IdRef="UploadFilesConnections_8" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="https://baraadv.sharepoint.com/sites/Test_Sharepoint/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FTest%5FSharepoint%2FShared%20Documents%2FTNS%2FMasterFile&amp;viewid=bf2b471a%2D2453%2D448a%2Da877%2D9a46b0f0740b" MultipleFilesToUpload="[System.Linq.Enumerable.Repeat(CType(ilrFile, UiPath.Platform.ResourceHandling.IResource), 1)]" UseConnectionService="True">
+                      <umaf:UploadFilesConnections.DriveItemArgument>
+                        <umafm:DriveItemArgument BrowserDriveId="{x:Null}" BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentDriveId="{x:Null}" BrowserParentDriveName="{x:Null}" BrowserParentItemFriendlyName="{x:Null}" BrowserParentItemId="{x:Null}" BrowserParentPath="{x:Null}" BrowserSiteUrl="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionDescriptor="{x:Null}" FullPathHint="{x:Null}" Item="{x:Null}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" ReferenceId="{x:Null}" ConnectionKey="447fba6e-4af6-4405-a86f-9dc4a7a2946c" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="https://baraadv.sharepoint.com/sites/Test_Sharepoint/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FTest%5FSharepoint%2FShared%20Documents%2FTNS%2FMasterFile&amp;viewid=bf2b471a%2D2453%2D448a%2Da877%2D9a46b0f0740b" ParentFullPathHint="">
+                          <umafm:DriveItemArgument.ItemIdBackup>
+                            <usau:BackupSlot x:TypeArguments="umafe:EDriveItemMode" x:Name="__ReferenceID7" StoredValue="ItemUrl">
+                              <usau:BackupSlot.BackupValues>
+                                <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="6">
+                                  <InArgument x:TypeArguments="x:String" />
+                                  <InArgument x:TypeArguments="x:String" />
+                                  <InArgument x:TypeArguments="x:String" />
+                                  <InArgument x:TypeArguments="x:String" />
+                                  <InArgument x:TypeArguments="x:String" />
+                                  <InArgument x:TypeArguments="x:String" />
+                                </scg:List>
+                              </usau:BackupSlot.BackupValues>
+                            </usau:BackupSlot>
+                          </umafm:DriveItemArgument.ItemIdBackup>
+                        </umafm:DriveItemArgument>
+                      </umaf:UploadFilesConnections.DriveItemArgument>
+                      <umaf:UploadFilesConnections.FilesBackup>
+                        <usau:BackupSlot x:TypeArguments="umafe:FilesInputMode" StoredValue="MultipleByVariable">
+                          <usau:BackupSlot.BackupValues>
+                            <scg:Dictionary x:TypeArguments="umafe:FilesInputMode, scg:List(x:Object)" />
+                          </usau:BackupSlot.BackupValues>
+                        </usau:BackupSlot>
+                      </umaf:UploadFilesConnections.FilesBackup>
+                    </umaf:UploadFilesConnections>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEachFileX.Body>
+            </ui:ForEachFileX>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEachFolderX.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ForEachFolderX>
+    <umaf:GetFileListConnections AllColumns="{x:Array Type=umsm:Office365SharepointListColumnSlim}" BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentItemId="{x:Null}" BrowserSiteUrl="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" DynamicMetadataFilter="{x:Null}" Filter="{x:Null}" FreeTextFilter="{x:Null}" ItemIdBackup="{x:Reference __ReferenceID8}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" MetadataFilter="{x:Null}" QueryFilter="{x:Null}" SharepointLibraryItemFriendlyName="{x:Null}" SharepointListId="{x:Null}" SharepointSiteUrl="{x:Null}" SimpleSearch="{x:Null}" AuthScopesInvalid="False" ConnectionId="447fba6e-4af6-4405-a86f-9dc4a7a2946c" DisplayName="Get File or Folder List" sap:VirtualizedContainerService.HintSize="562,186.66666666666666" sap2010:WorkflowViewState.IdRef="GetFileListConnections_4" IncludeSubfolders="False" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="https://baraadv.sharepoint.com/sites/Test_Sharepoint/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FTest%5FSharepoint%2FShared%20Documents%2FTNS&amp;viewid=bf2b471a%2D2453%2D448a%2Da877%2D9a46b0f0740b" MaxResults="200" Result="[lstProjectFolder]" SearchMode="UseSimple" TrimDuplicates="False" UseConnectionService="True" WhatToReturn="[UiPath.MicrosoftOffice365.Enums.FindFilesAndFoldersResultType.Folders]" WorkingWithDocumentLibrary="False">
+      <umaf:GetFileListConnections.DriveItemArgument>
+        <umafm:DriveItemArgument BrowserDriveId="{x:Null}" BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentDriveId="{x:Null}" BrowserParentDriveName="{x:Null}" BrowserParentItemFriendlyName="{x:Null}" BrowserParentItemId="{x:Null}" BrowserParentPath="{x:Null}" BrowserSiteUrl="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionDescriptor="{x:Null}" FullPathHint="{x:Null}" Item="{x:Null}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" ReferenceId="{x:Null}" ConnectionKey="447fba6e-4af6-4405-a86f-9dc4a7a2946c" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="https://baraadv.sharepoint.com/sites/Test_Sharepoint/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FTest%5FSharepoint%2FShared%20Documents%2FTNS&amp;viewid=bf2b471a%2D2453%2D448a%2Da877%2D9a46b0f0740b" ParentFullPathHint="">
+          <umafm:DriveItemArgument.ItemIdBackup>
+            <usau:BackupSlot x:TypeArguments="umafe:EDriveItemMode" x:Name="__ReferenceID8" StoredValue="ItemUrl">
+              <usau:BackupSlot.BackupValues>
+                <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="6">
+                  <InArgument x:TypeArguments="x:String">01ORMITO56Y2GOVW7725BZO354PWSELRRZ</InArgument>
+                  <InArgument x:TypeArguments="x:String">OneDrive</InArgument>
+                  <InArgument x:TypeArguments="x:String">b!BkazB8ZIxU62pKtzFPYqDpERanXx7RpIsK9c35len7zUqq8dO2F7RYBq7tYhOpBE</InArgument>
+                  <InArgument x:TypeArguments="x:String">root</InArgument>
+                  <InArgument x:TypeArguments="x:String">https://baraadv-my.sharepoint.com/personal/phurin_s_baraadv_co_th/Documents</InArgument>
+                  <InArgument x:TypeArguments="x:String">https://baraadv-my.sharepoint.com/personal/phurin_s_baraadv_co_th/Documents</InArgument>
+                </scg:List>
+              </usau:BackupSlot.BackupValues>
+            </usau:BackupSlot>
+          </umafm:DriveItemArgument.ItemIdBackup>
+        </umafm:DriveItemArgument>
+      </umaf:GetFileListConnections.DriveItemArgument>
+      <umaf:GetFileListConnections.FilterSelectionBackup>
+        <usau:BackupSlot x:TypeArguments="umafe:SearchSelectionMode" StoredValue="UseSimple">
+          <usau:BackupSlot.BackupValues>
+            <scg:Dictionary x:TypeArguments="umafe:SearchSelectionMode, scg:List(x:Object)" />
+          </usau:BackupSlot.BackupValues>
+        </usau:BackupSlot>
+      </umaf:GetFileListConnections.FilterSelectionBackup>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </umaf:GetFileListConnections>
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtFilesDetail]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="562,1694" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow.Body>
+        <ActivityAction x:TypeArguments="sd:DataRow">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="560,1510" sap2010:WorkflowViewState.IdRef="Sequence_26">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ForEach x:TypeArguments="umfm:O365DriveRemoteItem" CurrentIndex="{x:Null}" DisplayName="For Each currentO365DriveRemoteItemProjectFolder" sap:VirtualizedContainerService.HintSize="526,1450" sap2010:WorkflowViewState.IdRef="ForEach`1_11" Values="[lstProjectFolder]">
+              <ui:ForEach.Body>
+                <ActivityAction x:TypeArguments="umfm:O365DriveRemoteItem">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="umfm:O365DriveRemoteItem" Name="currentO365DriveRemoteItemProjectFolder" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="524,1327.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If Condition="[CurrentRow.item(&quot;ProjectFolder&quot;).ToString = currentO365DriveRemoteItemProjectFolder.Name]" sap:VirtualizedContainerService.HintSize="490,1267.3333333333333" sap2010:WorkflowViewState.IdRef="If_4">
+                      <If.Then>
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="488,1046" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="umfm:O365DriveRemoteItem[]" Name="lstMonthlyFolder" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <umaf:GetFileListConnections AllColumns="{x:Array Type=umsm:Office365SharepointListColumnSlim}" BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentItemId="{x:Null}" BrowserSiteUrl="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" DynamicMetadataFilter="{x:Null}" Filter="{x:Null}" FreeTextFilter="{x:Null}" ItemIdBackup="{x:Reference __ReferenceID9}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" MetadataFilter="{x:Null}" QueryFilter="{x:Null}" SharepointLibraryItemFriendlyName="{x:Null}" SharepointListId="{x:Null}" SharepointSiteUrl="{x:Null}" SimpleSearch="{x:Null}" AuthScopesInvalid="False" ConnectionId="447fba6e-4af6-4405-a86f-9dc4a7a2946c" DisplayName="Get File or Folder List" sap:VirtualizedContainerService.HintSize="454,186.66666666666666" sap2010:WorkflowViewState.IdRef="GetFileListConnections_9" IncludeSubfolders="False" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="[currentO365DriveRemoteItemProjectFolder.Url]" MaxResults="200" Result="[lstMonthlyFolder]" SearchMode="UseSimple" TrimDuplicates="False" UseConnectionService="True" WhatToReturn="[UiPath.MicrosoftOffice365.Enums.FindFilesAndFoldersResultType.Folders]" WorkingWithDocumentLibrary="False">
+                            <umaf:GetFileListConnections.DriveItemArgument>
+                              <umafm:DriveItemArgument BrowserDriveId="{x:Null}" BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentDriveId="{x:Null}" BrowserParentDriveName="{x:Null}" BrowserParentItemFriendlyName="{x:Null}" BrowserParentItemId="{x:Null}" BrowserParentPath="{x:Null}" BrowserSiteUrl="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionDescriptor="{x:Null}" FullPathHint="{x:Null}" Item="{x:Null}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" ReferenceId="{x:Null}" ConnectionKey="447fba6e-4af6-4405-a86f-9dc4a7a2946c" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="[currentO365DriveRemoteItemProjectFolder.Url]" ParentFullPathHint="">
+                                <umafm:DriveItemArgument.ItemIdBackup>
+                                  <usau:BackupSlot x:TypeArguments="umafe:EDriveItemMode" x:Name="__ReferenceID9" StoredValue="ItemUrl">
+                                    <usau:BackupSlot.BackupValues>
+                                      <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="6">
+                                        <InArgument x:TypeArguments="x:String" />
+                                        <InArgument x:TypeArguments="x:String" />
+                                        <InArgument x:TypeArguments="x:String" />
+                                        <InArgument x:TypeArguments="x:String" />
+                                        <InArgument x:TypeArguments="x:String" />
+                                        <InArgument x:TypeArguments="x:String" />
+                                      </scg:List>
+                                    </usau:BackupSlot.BackupValues>
+                                  </usau:BackupSlot>
+                                </umafm:DriveItemArgument.ItemIdBackup>
+                              </umafm:DriveItemArgument>
+                            </umaf:GetFileListConnections.DriveItemArgument>
+                            <umaf:GetFileListConnections.FilterSelectionBackup>
+                              <usau:BackupSlot x:TypeArguments="umafe:SearchSelectionMode" StoredValue="UseSimple">
+                                <usau:BackupSlot.BackupValues>
+                                  <scg:Dictionary x:TypeArguments="umafe:SearchSelectionMode, scg:List(x:Object)" />
+                                </usau:BackupSlot.BackupValues>
+                              </usau:BackupSlot>
+                            </umaf:GetFileListConnections.FilterSelectionBackup>
+                          </umaf:GetFileListConnections>
+                          <ui:ForEach x:TypeArguments="umfm:O365DriveRemoteItem" CurrentIndex="{x:Null}" DisplayName="For Each currentO365DriveRemoteItemMonthlyFolder" sap:VirtualizedContainerService.HintSize="454,799.3333333333334" sap2010:WorkflowViewState.IdRef="ForEach`1_13" Values="[lstMonthlyFolder]">
+                            <ui:ForEach.Body>
+                              <ActivityAction x:TypeArguments="umfm:O365DriveRemoteItem">
+                                <ActivityAction.Argument>
+                                  <DelegateInArgument x:TypeArguments="umfm:O365DriveRemoteItem" Name="currentO365DriveRemoteItemMonthlyFolder" />
+                                </ActivityAction.Argument>
+                                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="452,676.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <If Condition="[currentO365DriveRemoteItemMonthlyFolder.Name = strFolderName]" sap:VirtualizedContainerService.HintSize="418,616.6666666666666" sap2010:WorkflowViewState.IdRef="If_5">
+                                    <If.Then>
+                                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,395.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <umaf:CopyItemConnections BrowserDriveName="{x:Null}" BrowserFolderDriveName="{x:Null}" BrowserFolderFriendlyName="{x:Null}" BrowserFolderId="{x:Null}" BrowserFolderSiteUrl="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentItemId="{x:Null}" BrowserSiteUrl="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" FolderIdBackup="{x:Reference __ReferenceID10}" ItemIdBackup="{x:Reference __ReferenceID11}" ManualEntryDriveName="{x:Null}" ManualEntryFolderDriveName="{x:Null}" ManualEntryFolderId="{x:Null}" ManualEntryFolderSiteUrl="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" NewName="{x:Null}" Result="{x:Null}" AuthScopesInvalid="False" ConflictResolution="Fail" ConnectionId="447fba6e-4af6-4405-a86f-9dc4a7a2946c" DisplayName="Copy file or folder" FolderSelectionMode="ItemUrl" sap:VirtualizedContainerService.HintSize="382,335.3333333333333" sap2010:WorkflowViewState.IdRef="CopyItemConnections_2" ItemSelectionMode="ItemUrl" ManualEntryFolderUrl="[currentO365DriveRemoteItemMonthlyFolder.Url]" ManualEntryItemUrl="[CurrentRow.item(&quot;FileUrl&quot;).ToString]" UseConnectionService="True">
+                                          <umaf:CopyItemConnections.DriveItemArgument>
+                                            <umafm:DriveItemArgument BrowserDriveId="{x:Null}" BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentDriveId="{x:Null}" BrowserParentDriveName="{x:Null}" BrowserParentItemFriendlyName="{x:Null}" BrowserParentItemId="{x:Null}" BrowserParentPath="{x:Null}" BrowserSiteUrl="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionDescriptor="{x:Null}" ConnectionKey="{x:Null}" Item="{x:Null}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" ReferenceId="{x:Null}" FullPathHint="" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="[CurrentRow.item(&quot;FileUrl&quot;).ToString]" ParentFullPathHint="">
+                                              <umafm:DriveItemArgument.ItemIdBackup>
+                                                <usau:BackupSlot x:TypeArguments="umafe:EDriveItemMode" x:Name="__ReferenceID11" StoredValue="ItemUrl">
+                                                  <usau:BackupSlot.BackupValues>
+                                                    <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="6">
+                                                      <x:Null />
+                                                      <x:Null />
+                                                      <x:Null />
+                                                      <x:Null />
+                                                      <x:Null />
+                                                      <x:Null />
+                                                    </scg:List>
+                                                  </usau:BackupSlot.BackupValues>
+                                                </usau:BackupSlot>
+                                              </umafm:DriveItemArgument.ItemIdBackup>
+                                            </umafm:DriveItemArgument>
+                                          </umaf:CopyItemConnections.DriveItemArgument>
+                                          <umaf:CopyItemConnections.FolderArgument>
+                                            <umafm:DriveItemArgument BrowserDriveId="{x:Null}" BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentDriveId="{x:Null}" BrowserParentDriveName="{x:Null}" BrowserParentItemFriendlyName="{x:Null}" BrowserParentItemId="{x:Null}" BrowserParentPath="{x:Null}" BrowserSiteUrl="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionDescriptor="{x:Null}" FullPathHint="{x:Null}" Item="{x:Null}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" ReferenceId="{x:Null}" ConnectionKey="447fba6e-4af6-4405-a86f-9dc4a7a2946c" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="[currentO365DriveRemoteItemMonthlyFolder.Url]" ParentFullPathHint="">
+                                              <umafm:DriveItemArgument.ItemIdBackup>
+                                                <usau:BackupSlot x:TypeArguments="umafe:EDriveItemMode" x:Name="__ReferenceID10" StoredValue="ItemUrl">
+                                                  <usau:BackupSlot.BackupValues>
+                                                    <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="6">
+                                                      <InArgument x:TypeArguments="x:String">01ORMITO56Y2GOVW7725BZO354PWSELRRZ</InArgument>
+                                                      <InArgument x:TypeArguments="x:String">OneDrive</InArgument>
+                                                      <InArgument x:TypeArguments="x:String">b!BkazB8ZIxU62pKtzFPYqDpERanXx7RpIsK9c35len7zUqq8dO2F7RYBq7tYhOpBE</InArgument>
+                                                      <InArgument x:TypeArguments="x:String">root</InArgument>
+                                                      <InArgument x:TypeArguments="x:String">https://baraadv-my.sharepoint.com/personal/phurin_s_baraadv_co_th/Documents</InArgument>
+                                                      <InArgument x:TypeArguments="x:String">https://baraadv-my.sharepoint.com/personal/phurin_s_baraadv_co_th/Documents</InArgument>
+                                                    </scg:List>
+                                                  </usau:BackupSlot.BackupValues>
+                                                </usau:BackupSlot>
+                                              </umafm:DriveItemArgument.ItemIdBackup>
+                                            </umafm:DriveItemArgument>
+                                          </umaf:CopyItemConnections.FolderArgument>
+                                        </umaf:CopyItemConnections>
+                                      </Sequence>
+                                    </If.Then>
+                                    <If.Else>
+                                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </Sequence>
+                                    </If.Else>
+                                  </If>
+                                </Sequence>
+                              </ActivityAction>
+                            </ui:ForEach.Body>
+                          </ui:ForEach>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="488,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEach.Body>
+            </ui:ForEach>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEachRow.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ForEachRow>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="562,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="632,2364.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_21">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ForEach x:TypeArguments="umfm:O365DriveRemoteItem" CurrentIndex="{x:Null}" DisplayName="For Each currentO365DriveRemoteItemMaster" sap:VirtualizedContainerService.HintSize="598,2304.6666666666665" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[lstMasterFolder]">
+            <ui:ForEach.Body>
+              <ActivityAction x:TypeArguments="umfm:O365DriveRemoteItem">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="umfm:O365DriveRemoteItem" Name="currentO365DriveRemoteItemMaster" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="596,2182" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="umfm:O365DriveRemoteItem[]" Name="lstMasterFile" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <umaf:GetFileListConnections AllColumns="{x:Array Type=umsm:Office365SharepointListColumnSlim}" BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentItemId="{x:Null}" BrowserSiteUrl="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" DynamicMetadataFilter="{x:Null}" Filter="{x:Null}" FreeTextFilter="{x:Null}" ItemIdBackup="{x:Reference __ReferenceID12}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" MetadataFilter="{x:Null}" QueryFilter="{x:Null}" SharepointLibraryItemFriendlyName="{x:Null}" SharepointListId="{x:Null}" SharepointSiteUrl="{x:Null}" SimpleSearch="{x:Null}" AuthScopesInvalid="False" ConnectionId="447fba6e-4af6-4405-a86f-9dc4a7a2946c" DisplayName="Get File or Folder List" sap:VirtualizedContainerService.HintSize="562,186.66666666666666" sap2010:WorkflowViewState.IdRef="GetFileListConnections_6" IncludeSubfolders="False" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="[currentO365DriveRemoteItemMaster.URL]" MaxResults="200" Result="[lstMasterFile]" SearchMode="UseSimple" TrimDuplicates="False" UseConnectionService="True" WhatToReturn="Files" WorkingWithDocumentLibrary="False">
+                    <umaf:GetFileListConnections.DriveItemArgument>
+                      <umafm:DriveItemArgument BrowserDriveId="{x:Null}" BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentDriveId="{x:Null}" BrowserParentDriveName="{x:Null}" BrowserParentItemFriendlyName="{x:Null}" BrowserParentItemId="{x:Null}" BrowserParentPath="{x:Null}" BrowserSiteUrl="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionDescriptor="{x:Null}" FullPathHint="{x:Null}" Item="{x:Null}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" ReferenceId="{x:Null}" ConnectionKey="447fba6e-4af6-4405-a86f-9dc4a7a2946c" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="[currentO365DriveRemoteItemMaster.URL]" ParentFullPathHint="">
+                        <umafm:DriveItemArgument.ItemIdBackup>
+                          <usau:BackupSlot x:TypeArguments="umafe:EDriveItemMode" x:Name="__ReferenceID12" StoredValue="ItemUrl">
+                            <usau:BackupSlot.BackupValues>
+                              <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="6">
+                                <InArgument x:TypeArguments="x:String" />
+                                <InArgument x:TypeArguments="x:String" />
+                                <InArgument x:TypeArguments="x:String" />
+                                <InArgument x:TypeArguments="x:String" />
+                                <InArgument x:TypeArguments="x:String" />
+                                <InArgument x:TypeArguments="x:String" />
+                              </scg:List>
+                            </usau:BackupSlot.BackupValues>
+                          </usau:BackupSlot>
+                        </umafm:DriveItemArgument.ItemIdBackup>
+                      </umafm:DriveItemArgument>
+                    </umaf:GetFileListConnections.DriveItemArgument>
+                    <umaf:GetFileListConnections.FilterSelectionBackup>
+                      <usau:BackupSlot x:TypeArguments="umafe:SearchSelectionMode" StoredValue="UseSimple">
+                        <usau:BackupSlot.BackupValues>
+                          <scg:Dictionary x:TypeArguments="umafe:SearchSelectionMode, scg:List(x:Object)" />
+                        </usau:BackupSlot.BackupValues>
+                      </usau:BackupSlot>
+                    </umaf:GetFileListConnections.FilterSelectionBackup>
+                  </umaf:GetFileListConnections>
+                  <ui:ForEach x:TypeArguments="umfm:O365DriveRemoteItem" CurrentIndex="{x:Null}" DisplayName="For Each currentO365DriveRemoteItemMasterFile" sap:VirtualizedContainerService.HintSize="562,1935.3333333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_6" Values="[lstMasterFile]">
+                    <ui:ForEach.Body>
+                      <ActivityAction x:TypeArguments="umfm:O365DriveRemoteItem">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="umfm:O365DriveRemoteItem" Name="currentO365DriveRemoteItemMasterFile" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="560,1812.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:ForEach x:TypeArguments="umfm:O365DriveRemoteItem" CurrentIndex="{x:Null}" DisplayName="For Each currentO365DriveRemoteItemProject" sap:VirtualizedContainerService.HintSize="526,1752.6666666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[lstProjectFolder]">
+                            <ui:ForEach.Body>
+                              <ActivityAction x:TypeArguments="umfm:O365DriveRemoteItem">
+                                <ActivityAction.Argument>
+                                  <DelegateInArgument x:TypeArguments="umfm:O365DriveRemoteItem" Name="currentO365DriveRemoteItemProject" />
+                                </ActivityAction.Argument>
+                                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="524,1630.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <If Condition="[currentO365DriveRemoteItemMaster.Name = currentO365DriveRemoteItemProject.Name]" sap:VirtualizedContainerService.HintSize="490,1570.6666666666667" sap2010:WorkflowViewState.IdRef="If_2">
+                                    <If.Then>
+                                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="488,1214.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                                        <Sequence.Variables>
+                                          <Variable x:TypeArguments="umfm:O365DriveRemoteItem[]" Name="lstMonthlyFolder" />
+                                        </Sequence.Variables>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <umaf:GetFileListConnections AllColumns="{x:Array Type=umsm:Office365SharepointListColumnSlim}" BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentItemId="{x:Null}" BrowserSiteUrl="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" DynamicMetadataFilter="{x:Null}" Filter="{x:Null}" FreeTextFilter="{x:Null}" ItemIdBackup="{x:Reference __ReferenceID13}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" MetadataFilter="{x:Null}" QueryFilter="{x:Null}" SharepointLibraryItemFriendlyName="{x:Null}" SharepointListId="{x:Null}" SharepointSiteUrl="{x:Null}" SimpleSearch="{x:Null}" AuthScopesInvalid="False" ConnectionId="447fba6e-4af6-4405-a86f-9dc4a7a2946c" DisplayName="Get File or Folder List" sap:VirtualizedContainerService.HintSize="454,185.33333333333334" sap2010:WorkflowViewState.IdRef="GetFileListConnections_5" IncludeSubfolders="False" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="[currentO365DriveRemoteItemProject.Url]" MaxResults="200" Result="[lstMonthlyFolder]" SearchMode="UseSimple" TrimDuplicates="False" UseConnectionService="True" WhatToReturn="[UiPath.MicrosoftOffice365.Enums.FindFilesAndFoldersResultType.Folders]" WorkingWithDocumentLibrary="False">
+                                          <umaf:GetFileListConnections.DriveItemArgument>
+                                            <umafm:DriveItemArgument BrowserDriveId="{x:Null}" BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentDriveId="{x:Null}" BrowserParentDriveName="{x:Null}" BrowserParentItemFriendlyName="{x:Null}" BrowserParentItemId="{x:Null}" BrowserParentPath="{x:Null}" BrowserSiteUrl="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionDescriptor="{x:Null}" FullPathHint="{x:Null}" Item="{x:Null}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" ReferenceId="{x:Null}" ConnectionKey="447fba6e-4af6-4405-a86f-9dc4a7a2946c" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="[currentO365DriveRemoteItemProject.Url]" ParentFullPathHint="">
+                                              <umafm:DriveItemArgument.ItemIdBackup>
+                                                <usau:BackupSlot x:TypeArguments="umafe:EDriveItemMode" x:Name="__ReferenceID13" StoredValue="ItemUrl">
+                                                  <usau:BackupSlot.BackupValues>
+                                                    <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="6">
+                                                      <InArgument x:TypeArguments="x:String">01ORMITO56Y2GOVW7725BZO354PWSELRRZ</InArgument>
+                                                      <InArgument x:TypeArguments="x:String">OneDrive</InArgument>
+                                                      <InArgument x:TypeArguments="x:String">b!BkazB8ZIxU62pKtzFPYqDpERanXx7RpIsK9c35len7zUqq8dO2F7RYBq7tYhOpBE</InArgument>
+                                                      <InArgument x:TypeArguments="x:String">root</InArgument>
+                                                      <InArgument x:TypeArguments="x:String">https://baraadv-my.sharepoint.com/personal/phurin_s_baraadv_co_th/Documents</InArgument>
+                                                      <InArgument x:TypeArguments="x:String">https://baraadv-my.sharepoint.com/personal/phurin_s_baraadv_co_th/Documents</InArgument>
+                                                    </scg:List>
+                                                  </usau:BackupSlot.BackupValues>
+                                                </usau:BackupSlot>
+                                              </umafm:DriveItemArgument.ItemIdBackup>
+                                            </umafm:DriveItemArgument>
+                                          </umaf:GetFileListConnections.DriveItemArgument>
+                                          <umaf:GetFileListConnections.FilterSelectionBackup>
+                                            <usau:BackupSlot x:TypeArguments="umafe:SearchSelectionMode" StoredValue="UseSimple">
+                                              <usau:BackupSlot.BackupValues>
+                                                <scg:Dictionary x:TypeArguments="umafe:SearchSelectionMode, scg:List(x:Object)" />
+                                              </usau:BackupSlot.BackupValues>
+                                            </usau:BackupSlot>
+                                          </umaf:GetFileListConnections.FilterSelectionBackup>
+                                        </umaf:GetFileListConnections>
+                                        <ui:ForEach x:TypeArguments="umfm:O365DriveRemoteItem" CurrentIndex="{x:Null}" DisplayName="For Each currentO365DriveRemoteItemMonthly" sap:VirtualizedContainerService.HintSize="454,969.3333333333334" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[lstMonthlyFolder]">
+                                          <ui:ForEach.Body>
+                                            <ActivityAction x:TypeArguments="umfm:O365DriveRemoteItem">
+                                              <ActivityAction.Argument>
+                                                <DelegateInArgument x:TypeArguments="umfm:O365DriveRemoteItem" Name="currentO365DriveRemoteItemMonthly" />
+                                              </ActivityAction.Argument>
+                                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="452,847.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <If Condition="[currentO365DriveRemoteItemMonthly.Name = strFolderName]" sap:VirtualizedContainerService.HintSize="418,787.3333333333334" sap2010:WorkflowViewState.IdRef="If_3">
+                                                  <If.Then>
+                                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,567.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <umaf:CopyItemConnections BrowserDriveName="{x:Null}" BrowserFolderDriveName="{x:Null}" BrowserFolderFriendlyName="{x:Null}" BrowserFolderId="{x:Null}" BrowserFolderSiteUrl="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentItemId="{x:Null}" BrowserSiteUrl="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" FolderIdBackup="{x:Reference __ReferenceID14}" ItemIdBackup="{x:Reference __ReferenceID15}" ManualEntryDriveName="{x:Null}" ManualEntryFolderDriveName="{x:Null}" ManualEntryFolderId="{x:Null}" ManualEntryFolderSiteUrl="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" NewName="{x:Null}" Result="{x:Null}" AuthScopesInvalid="False" ConflictResolution="Fail" ConnectionId="447fba6e-4af6-4405-a86f-9dc4a7a2946c" DisplayName="Copy file or folder" FolderSelectionMode="ItemUrl" sap:VirtualizedContainerService.HintSize="382,341.3333333333333" sap2010:WorkflowViewState.IdRef="CopyItemConnections_1" ItemSelectionMode="ItemUrl" ManualEntryFolderUrl="[currentO365DriveRemoteItemMonthly.Url]" ManualEntryItemUrl="[currentO365DriveRemoteItemMasterFile.Url]" UseConnectionService="True">
+                                                        <umaf:CopyItemConnections.DriveItemArgument>
+                                                          <umafm:DriveItemArgument BrowserDriveId="{x:Null}" BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentDriveId="{x:Null}" BrowserParentDriveName="{x:Null}" BrowserParentItemFriendlyName="{x:Null}" BrowserParentItemId="{x:Null}" BrowserParentPath="{x:Null}" BrowserSiteUrl="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionDescriptor="{x:Null}" ConnectionKey="{x:Null}" Item="{x:Null}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" ReferenceId="{x:Null}" FullPathHint="" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="[currentO365DriveRemoteItemMasterFile.Url]" ParentFullPathHint="">
+                                                            <umafm:DriveItemArgument.ItemIdBackup>
+                                                              <usau:BackupSlot x:TypeArguments="umafe:EDriveItemMode" x:Name="__ReferenceID15" StoredValue="ItemUrl">
+                                                                <usau:BackupSlot.BackupValues>
+                                                                  <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="6">
+                                                                    <x:Null />
+                                                                    <x:Null />
+                                                                    <x:Null />
+                                                                    <x:Null />
+                                                                    <x:Null />
+                                                                    <x:Null />
+                                                                  </scg:List>
+                                                                </usau:BackupSlot.BackupValues>
+                                                              </usau:BackupSlot>
+                                                            </umafm:DriveItemArgument.ItemIdBackup>
+                                                          </umafm:DriveItemArgument>
+                                                        </umaf:CopyItemConnections.DriveItemArgument>
+                                                        <umaf:CopyItemConnections.FolderArgument>
+                                                          <umafm:DriveItemArgument BrowserDriveId="{x:Null}" BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentDriveId="{x:Null}" BrowserParentDriveName="{x:Null}" BrowserParentItemFriendlyName="{x:Null}" BrowserParentItemId="{x:Null}" BrowserParentPath="{x:Null}" BrowserSiteUrl="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionDescriptor="{x:Null}" FullPathHint="{x:Null}" Item="{x:Null}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" ReferenceId="{x:Null}" ConnectionKey="447fba6e-4af6-4405-a86f-9dc4a7a2946c" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="[currentO365DriveRemoteItemMonthly.Url]" ParentFullPathHint="">
+                                                            <umafm:DriveItemArgument.ItemIdBackup>
+                                                              <usau:BackupSlot x:TypeArguments="umafe:EDriveItemMode" x:Name="__ReferenceID14" StoredValue="ItemUrl">
+                                                                <usau:BackupSlot.BackupValues>
+                                                                  <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="6">
+                                                                    <InArgument x:TypeArguments="x:String" />
+                                                                    <InArgument x:TypeArguments="x:String" />
+                                                                    <InArgument x:TypeArguments="x:String" />
+                                                                    <InArgument x:TypeArguments="x:String" />
+                                                                    <InArgument x:TypeArguments="x:String" />
+                                                                    <InArgument x:TypeArguments="x:String" />
+                                                                  </scg:List>
+                                                                </usau:BackupSlot.BackupValues>
+                                                              </usau:BackupSlot>
+                                                            </umafm:DriveItemArgument.ItemIdBackup>
+                                                          </umafm:DriveItemArgument>
+                                                        </umaf:CopyItemConnections.FolderArgument>
+                                                      </umaf:CopyItemConnections>
+                                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,166" sap2010:WorkflowViewState.IdRef="LogMessage_8" Message="[&quot;Master Folder : &quot; + currentO365DriveRemoteItemMaster.Name + &quot; &amp; Project Folder : &quot; + currentO365DriveRemoteItemProject.Name + vbCrLf +&#xA;&quot;Master FIle : &quot; + currentO365DriveRemoteItemMasterFile.Name + &quot;Copy Done&quot;]" />
+                                                    </Sequence>
+                                                  </If.Then>
+                                                  <If.Else>
+                                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                    </Sequence>
+                                                  </If.Else>
+                                                </If>
+                                              </Sequence>
+                                            </ActivityAction>
+                                          </ui:ForEach.Body>
+                                        </ui:ForEach>
+                                      </Sequence>
+                                    </If.Then>
+                                    <If.Else>
+                                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="488,226" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="454,166" sap2010:WorkflowViewState.IdRef="LogMessage_5" Message="[&quot;Master Folder : &quot; + currentO365DriveRemoteItemMaster.Name + &quot; &amp; Project Folder : &quot; + currentO365DriveRemoteItemProject.Name]" />
+                                      </Sequence>
+                                    </If.Else>
+                                  </If>
+                                </Sequence>
+                              </ActivityAction>
+                            </ui:ForEach.Body>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:ForEach>
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:ForEach.Body>
+                  </ui:ForEach>
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEach.Body>
+          </ui:ForEach>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="562,48" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="452,472.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <umaf:ForEachFileFolderConnections BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentItemId="{x:Null}" BrowserSiteUrl="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionAccountName="{x:Null}" Filter="{x:Null}" FreeTextFilter="{x:Null}" ItemIdBackup="{x:Reference __ReferenceID16}" Length="{x:Null}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" QueryFilter="{x:Null}" SimpleSearch="{x:Null}" AuthScopesInvalid="False" ConnectionId="447fba6e-4af6-4405-a86f-9dc4a7a2946c" CurrentItemVariableName="CurrentItem" DisplayName="For Each File or Folder" sap:VirtualizedContainerService.HintSize="418,412.6666666666667" sap2010:WorkflowViewState.IdRef="ForEachFileFolderConnections_1" IncludeSubfolders="False" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="[https://baraadv.sharepoint.com/sites/uipath.group]" MaxResults="200" SearchMode="UseSimple" TrimDuplicates="False" UseConnectionService="True" WhatToReturn="[UiPath.MicrosoftOffice365.Enums.FindFilesAndFoldersResultType.Folders]">
+            <umaf:ForEachFileFolderConnections.Body>
+              <ActivityAction x:TypeArguments="umfm:O365DriveRemoteItem, x:Int32">
+                <ActivityAction.Argument1>
+                  <DelegateInArgument x:TypeArguments="umfm:O365DriveRemoteItem" Name="CurrentItem" />
+                </ActivityAction.Argument1>
+                <ActivityAction.Argument2>
+                  <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentItemIndex" />
+                </ActivityAction.Argument2>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,227.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;TEST&quot;]" />
+                </Sequence>
+              </ActivityAction>
+            </umaf:ForEachFileFolderConnections.Body>
+            <umaf:ForEachFileFolderConnections.DriveItemArgument>
+              <umafm:DriveItemArgument BrowserDriveId="{x:Null}" BrowserDriveName="{x:Null}" BrowserItemFriendlyName="{x:Null}" BrowserItemId="{x:Null}" BrowserParentDriveId="{x:Null}" BrowserParentDriveName="{x:Null}" BrowserParentItemFriendlyName="{x:Null}" BrowserParentItemId="{x:Null}" BrowserParentPath="{x:Null}" BrowserSiteUrl="{x:Null}" BrowserSpecificUrl="{x:Null}" ConnectionDescriptor="{x:Null}" FullPathHint="{x:Null}" Item="{x:Null}" ManualEntryDriveName="{x:Null}" ManualEntryItemFullPath="{x:Null}" ManualEntryItemId="{x:Null}" ManualEntryItemRelativePath="{x:Null}" ManualEntrySiteUrl="{x:Null}" ReferenceId="{x:Null}" ConnectionKey="447fba6e-4af6-4405-a86f-9dc4a7a2946c" ItemSelectionMode="ItemUrl" ManualEntryItemUrl="[https://baraadv.sharepoint.com/sites/uipath.group]" ParentFullPathHint="">
+                <umafm:DriveItemArgument.ItemIdBackup>
+                  <usau:BackupSlot x:TypeArguments="umafe:EDriveItemMode" x:Name="__ReferenceID16" StoredValue="ItemUrl">
+                    <usau:BackupSlot.BackupValues>
+                      <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="6">
+                        <InArgument x:TypeArguments="x:String" />
+                        <InArgument x:TypeArguments="x:String" />
+                        <InArgument x:TypeArguments="x:String" />
+                        <InArgument x:TypeArguments="x:String" />
+                        <InArgument x:TypeArguments="x:String" />
+                        <InArgument x:TypeArguments="x:String" />
+                      </scg:List>
+                      <scg:List x:TypeArguments="x:Object" x:Key="ItemUrl" Capacity="1">
+                        <InArgument x:TypeArguments="x:String">[https://baraadv.sharepoint.com/sites/uipath.group]</InArgument>
+                      </scg:List>
+                    </usau:BackupSlot.BackupValues>
+                  </usau:BackupSlot>
+                </umafm:DriveItemArgument.ItemIdBackup>
+              </umafm:DriveItemArgument>
+            </umaf:ForEachFileFolderConnections.DriveItemArgument>
+            <umaf:ForEachFileFolderConnections.FilterSelectionBackup>
+              <usau:BackupSlot x:TypeArguments="umafe:SearchSelectionMode" StoredValue="UseSimple">
+                <usau:BackupSlot.BackupValues>
+                  <scg:Dictionary x:TypeArguments="umafe:SearchSelectionMode, scg:List(x:Object)" />
+                </usau:BackupSlot.BackupValues>
+              </usau:BackupSlot>
+            </umaf:ForEachFileFolderConnections.FilterSelectionBackup>
+          </umaf:ForEachFileFolderConnections>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+  </Sequence>
+</Activity>

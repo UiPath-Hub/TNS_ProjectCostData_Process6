@@ -1,0 +1,55 @@
+{
+  "Value": {
+    "PART_INSERT/PRC10_UPDATE_TEMP_DATABASE.xaml": [
+      {
+        "IsEnabled": true,
+        "Annotation": null,
+        "Id": "60e62616-f712-4dad-92c2-9cdbd57c33c4",
+        "ActivityIdRef": "CommentOut_1",
+        "ActivityId": "1.5415",
+        "ActivityName": "Comment Out",
+        "IsTransient": false
+      }
+    ],
+    "Framework/Process.xaml": [
+      {
+        "IsEnabled": true,
+        "Annotation": null,
+        "Id": "a57f1c55-4f3b-43f0-b6be-0ccd459f258c",
+        "ActivityIdRef": "LogMessage_4",
+        "ActivityId": "1.96288",
+        "ActivityName": "Log Message",
+        "IsTransient": false
+      },
+      {
+        "IsEnabled": true,
+        "Annotation": null,
+        "Id": "23fd5e89-9887-4bd6-88e7-5f8e62443b85",
+        "ActivityIdRef": "TryCatch_13",
+        "ActivityId": "1.24494",
+        "ActivityName": "Try Catch Set Transaction Status (Success)",
+        "IsTransient": false
+      },
+      {
+        "IsEnabled": true,
+        "Annotation": null,
+        "Id": "b1fc876f-e491-4803-bb60-e1de904eaa0e",
+        "ActivityIdRef": "LogAndRecordToDataTable_44",
+        "ActivityId": null,
+        "ActivityName": "Success log",
+        "IsTransient": false
+      }
+    ],
+    "CHECK_DATA.xaml": [
+      {
+        "IsEnabled": true,
+        "Annotation": null,
+        "Id": "a33cc404-dd72-44fa-99ac-9df904946cce",
+        "ActivityIdRef": "If_71",
+        "ActivityId": "1.7245",
+        "ActivityName": "If",
+        "IsTransient": false
+      }
+    ]
+  }
+}
