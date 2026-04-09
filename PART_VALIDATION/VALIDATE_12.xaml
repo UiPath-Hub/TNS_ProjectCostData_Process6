@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="VALIDATION_6" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="VALIDATION_6" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="strTempFileValidationFolderPath" Type="InOutArgument(x:String)" />
     <x:Property Name="dtReadRange" Type="InOutArgument(sd:DataTable)" />
@@ -8,6 +8,8 @@
     <x:Property Name="strProjectActiveStart" Type="InOutArgument(x:String)" />
     <x:Property Name="strProjectInactiveEnd" Type="InOutArgument(x:String)" />
     <x:Property Name="lstRelateDocument" Type="InOutArgument(scg:List(x:String))" />
+    <x:Property Name="strKeyToFind" Type="InOutArgument(x:String)" />
+    <x:Property Name="dtStoredConfig" Type="InOutArgument(sd:DataTable)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -108,9 +110,11 @@
       <AssemblyReference>UiPath.Word.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
       <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="VALIDATION_12" sap:VirtualizedContainerService.HintSize="1196,4939" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="VALIDATION_12" sap:VirtualizedContainerService.HintSize="1282,4347" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtRelateDocument" />
       <Variable x:TypeArguments="x:String" Name="strReadRange" />
@@ -125,37 +129,41 @@
       <Variable x:TypeArguments="x:String" Name="strCurrentPredefined" />
       <Variable x:TypeArguments="x:Boolean" Name="blFileExist" />
       <Variable x:TypeArguments="x:Int32" Name="intIndex" />
+      <Variable x:TypeArguments="x:String" Name="strCodeErrorMessage" />
+      <Variable x:TypeArguments="x:Int32" Name="lastRow" />
+      <Variable x:TypeArguments="x:Int32" Name="intRowIndex" />
+      <Variable x:TypeArguments="x:String" Name="strSheetName" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="VALIDATE_12_EXCEL_SCOPE" sap:VirtualizedContainerService.HintSize="995,4916" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_2">
+    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="VALIDATE_12_EXCEL_SCOPE" sap:VirtualizedContainerService.HintSize="984,4324" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_2">
       <ueab:ExcelProcessScopeX.Body>
         <ActivityAction x:TypeArguments="ui:IExcelProcess">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="961,4830" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="950,4238" sap2010:WorkflowViewState.IdRef="Sequence_10">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ueab:ExcelApplicationCard ReadFormatting="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Use Excel File for Validation_12" sap:VirtualizedContainerService.HintSize="927,4770" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None" SensitivityOperation="None" WorkbookPath="[strTempFileValidationFolderPath + strValidateFileName+&quot;.xlsx&quot;]">
+            <ueab:ExcelApplicationCard SensitivityLabel="{x:Null}" DisplayName="Use Excel File for Validation_12" sap:VirtualizedContainerService.HintSize="916,4178" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ReadFormatting="RawValue" ResizeWindow="Maximize" SensitivityOperation="None" WorkbookPath="[strTempFileValidationFolderPath + strValidateFileName+&quot;.xlsx&quot;]">
               <ueab:ExcelApplicationCard.Body>
                 <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Valid" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="893,4537" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="882,3942" sap2010:WorkflowViewState.IdRef="Sequence_9">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Assign sap:VirtualizedContainerService.HintSize="859,114" sap2010:WorkflowViewState.IdRef="Assign_3">
+                    <Assign sap:VirtualizedContainerService.HintSize="848,115" sap2010:WorkflowViewState.IdRef="Assign_3">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Int32">[intIndex]</OutArgument>
                       </Assign.To>
@@ -163,19 +171,19 @@
                         <InArgument x:TypeArguments="x:Int32">[1]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each of List Relate Document" sap:VirtualizedContainerService.HintSize="859,4363" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[lstRelateDocument]">
+                    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each of List Relate Document" sap:VirtualizedContainerService.HintSize="848,3767" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[lstRelateDocument]">
                       <ui:ForEach.Body>
                         <ActivityAction x:TypeArguments="x:String">
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="x:String" Name="currentDocument" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="825,4226" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="814,3629" sap2010:WorkflowViewState.IdRef="Sequence_8">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Assign sap:VirtualizedContainerService.HintSize="791,57" sap2010:WorkflowViewState.IdRef="Assign_1">
+                            <Assign sap:VirtualizedContainerService.HintSize="780,57" sap2010:WorkflowViewState.IdRef="Assign_1">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:Boolean">[blFileExist]</OutArgument>
                               </Assign.To>
@@ -189,7 +197,7 @@
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                             </Assign>
-                            <If Condition="[blFileExist]" DisplayName="Check Predefined Excel exist" sap:VirtualizedContainerService.HintSize="791,4004" sap2010:WorkflowViewState.IdRef="If_1">
+                            <If Condition="[blFileExist]" DisplayName="Check Predefined Excel exist" sap:VirtualizedContainerService.HintSize="780,3406" sap2010:WorkflowViewState.IdRef="If_1">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -197,13 +205,13 @@
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <If.Then>
-                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="757,3610" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="746,3009" sap2010:WorkflowViewState.IdRef="Sequence_6">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <Assign sap:VirtualizedContainerService.HintSize="723,115" sap2010:WorkflowViewState.IdRef="Assign_2">
+                                  <Assign sap:VirtualizedContainerService.HintSize="712,116" sap2010:WorkflowViewState.IdRef="Assign_2">
                                     <Assign.To>
                                       <OutArgument x:TypeArguments="x:String">[strCurrentPredefined]</OutArgument>
                                     </Assign.To>
@@ -212,19 +220,19 @@
     FirstOrDefault(Function(f) Path.GetFileName(f).Contains( currentDocument))]</InArgument>
                                     </Assign.Value>
                                   </Assign>
-                                  <ueab:ExcelApplicationCard SensitivityLabel="{x:Null}" DisplayName="Use Excel File for each predefined file" sap:VirtualizedContainerService.HintSize="723,3435" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_2" ReadFormatting="RawValue" ResizeWindow="Maximize" SensitivityOperation="None" WorkbookPath="[strCurrentPredefined]">
+                                  <ueab:ExcelApplicationCard SensitivityLabel="{x:Null}" DisplayName="Use Excel File for each predefined file" sap:VirtualizedContainerService.HintSize="712,2833" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_2" ReadFormatting="RawValue" ResizeWindow="Maximize" SensitivityOperation="None" WorkbookPath="[strCurrentPredefined]">
                                     <ueab:ExcelApplicationCard.Body>
                                       <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
                                         <ActivityAction.Argument>
                                           <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Predefined" />
                                         </ActivityAction.Argument>
-                                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="689,3202" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="678,2597" sap2010:WorkflowViewState.IdRef="Sequence_5">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <Switch x:TypeArguments="x:String" DisplayName="Switch for Validation (L2)" Expression="[currentDocument.Trim]" sap:VirtualizedContainerService.HintSize="655,3142" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+                                          <Switch x:TypeArguments="x:String" DisplayName="Switch for Validation (L2)" Expression="[currentDocument.Trim]" sap:VirtualizedContainerService.HintSize="644,2537" sap2010:WorkflowViewState.IdRef="Switch`1_2">
                                             <Switch.Default>
                                               <Sequence DisplayName="Default" sap:VirtualizedContainerService.HintSize="546,90" sap2010:WorkflowViewState.IdRef="Sequence_16">
                                                 <sap:WorkflowViewStateService.ViewState>
@@ -240,20 +248,20 @@
                                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <Sequence x:Key="01. Project Information" DisplayName="Body" sap:VirtualizedContainerService.HintSize="502,1140" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                            <Sequence x:Key="01. Project Information" DisplayName="Body" sap:VirtualizedContainerService.HintSize="502,1175" sap2010:WorkflowViewState.IdRef="Sequence_13">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
-                                              <Sequence DisplayName="1. PROJECT_INFORMATION" sap:VirtualizedContainerService.HintSize="468,419" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                                              <Sequence DisplayName="1. PROJECT_INFORMATION" sap:VirtualizedContainerService.HintSize="468,423" sap2010:WorkflowViewState.IdRef="Sequence_21">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <ueab:ReadCellValueX Cell="[Predefined.Sheet(dtReadRange.Rows( intIndex)(&quot;relate_document&quot;).ToString.Trim).Cell(  dtReadRange.Rows(1)(&quot;SGA&quot;).ToString)]" DisplayName="Read  SGA - 01. Project Information" GetFormattedText="True" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="ReadCellValueX_3">
+                                                <ueab:ReadCellValueX Cell="[Predefined.Sheet(dtReadRange.Rows( intIndex)(&quot;relate_document&quot;).ToString.Trim).Cell(  dtReadRange.Rows(1)(&quot;SGA&quot;).ToString)]" DisplayName="Read  SGA - 01. Project Information" GetFormattedText="True" sap:VirtualizedContainerService.HintSize="416,170" sap2010:WorkflowViewState.IdRef="ReadCellValueX_3">
                                                   <ueab:ReadCellValueX.SaveTo>
                                                     <OutArgument x:TypeArguments="x:String">[strSGA_01]</OutArgument>
                                                   </ueab:ReadCellValueX.SaveTo>
@@ -264,7 +272,7 @@
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
                                                 </ueab:ReadCellValueX>
-                                                <ueab:ReadCellValueX Cell="[Predefined.Sheet(dtReadRange.Rows( intIndex)(&quot;relate_document&quot;).ToString.Trim).Cell(  dtReadRange.Rows(1)(&quot;Kikanhi&quot;).ToString)]" DisplayName="Read Kikanhi - 01. Project Information" GetFormattedText="True" sap:VirtualizedContainerService.HintSize="416,159" sap2010:WorkflowViewState.IdRef="ReadCellValueX_2">
+                                                <ueab:ReadCellValueX Cell="[Predefined.Sheet(dtReadRange.Rows( intIndex)(&quot;relate_document&quot;).ToString.Trim).Cell(  dtReadRange.Rows(1)(&quot;Kikanhi&quot;).ToString)]" DisplayName="Read Kikanhi - 01. Project Information" GetFormattedText="True" sap:VirtualizedContainerService.HintSize="416,161" sap2010:WorkflowViewState.IdRef="ReadCellValueX_2">
                                                   <ueab:ReadCellValueX.SaveTo>
                                                     <OutArgument x:TypeArguments="x:String">[strKikanhi_01]</OutArgument>
                                                   </ueab:ReadCellValueX.SaveTo>
@@ -276,14 +284,14 @@
                                                   </sap:WorkflowViewStateService.ViewState>
                                                 </ueab:ReadCellValueX>
                                               </Sequence>
-                                              <Sequence DisplayName="VALIDATE_12 (CONFIGURATION)" sap:VirtualizedContainerService.HintSize="468,692" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                                              <Sequence DisplayName="VALIDATE_12 (CONFIGURATION)" sap:VirtualizedContainerService.HintSize="468,693" sap2010:WorkflowViewState.IdRef="Sequence_22">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <ueab:WriteCellX Cell="[Valid.Sheet(&quot;Configuration&quot;).Cell(&quot;G2&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="416,219" sap2010:WorkflowViewState.IdRef="WriteCellX_1" Value="[strSGA_01]">
+                                                <ueab:WriteCellX Cell="[Valid.Sheet(&quot;Configuration&quot;).Cell(&quot;G2&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="416,222" sap2010:WorkflowViewState.IdRef="WriteCellX_1" Value="[strSGA_01]">
                                                   <sap:WorkflowViewStateService.ViewState>
                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -291,7 +299,7 @@
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
                                                 </ueab:WriteCellX>
-                                                <ueab:WriteCellX Cell="[Valid.Sheet(&quot;Configuration&quot;).Cell(&quot;H2&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="416,219" sap2010:WorkflowViewState.IdRef="WriteCellX_2" Value="[strKikanhi_01]">
+                                                <ueab:WriteCellX Cell="[Valid.Sheet(&quot;Configuration&quot;).Cell(&quot;H2&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="416,222" sap2010:WorkflowViewState.IdRef="WriteCellX_2" Value="[strKikanhi_01]">
                                                   <sap:WorkflowViewStateService.ViewState>
                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -299,153 +307,593 @@
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
                                                 </ueab:WriteCellX>
-                                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,164" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Validate_12 = SGA_01 : &quot; + strSGA_01  +&quot; ,Kikanhi_01 : &quot; + strKikanhi_01]" />
+                                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Validate_12 = SGA_01 : &quot; + strSGA_01  +&quot; ,Kikanhi_01 : &quot; + strKikanhi_01]" />
                                               </Sequence>
                                             </Sequence>
-                                            <Sequence x:Key="05. Progress" DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_14">
-                                              <sap:WorkflowViewStateService.ViewState>
-                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                                </scg:Dictionary>
-                                              </sap:WorkflowViewStateService.ViewState>
-                                              <Sequence DisplayName="PROGRESS" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="Sequence_17">
-                                                <sap:WorkflowViewStateService.ViewState>
-                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                                  </scg:Dictionary>
-                                                </sap:WorkflowViewStateService.ViewState>
-                                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Predefined Excel exists = &quot; + strCurrentPredefined]">
-                                                  <sap:WorkflowViewStateService.ViewState>
-                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                                    </scg:Dictionary>
-                                                  </sap:WorkflowViewStateService.ViewState>
-                                                </ui:LogMessage>
-                                                <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim excelApp As New Microsoft.Office.Interop.Excel.Application()&#xA;Dim wb As Microsoft.Office.Interop.Excel.Workbook = Nothing&#xA;Dim ws As Microsoft.Office.Interop.Excel.Worksheet = Nothing&#xA;&#xA;Try&#xA;    ' ปิดการแจ้งเตือนและการอัปเดตหน้าจอ&#xA;    excelApp.Visible = False&#xA;    excelApp.DisplayAlerts = False&#xA;    excelApp.ScreenUpdating = False&#xA;&#xA;    ' เปิดไฟล์ Excel&#xA;    wb = excelApp.Workbooks.Open(in_FilePath)&#xA;    &#xA;    ' เลือก Sheet (Cast เป็น Worksheet ให้ชัดเจน)&#xA;    ws = CType(wb.Sheets(in_SheetName), Microsoft.Office.Interop.Excel.Worksheet)&#xA;&#xA;    ' --- จุดที่แก้ไข (Cast Cells เป็น Range เพื่อแก้ปัญหา Late Binding) ---&#xA;    Dim targetCell As Microsoft.Office.Interop.Excel.Range &#xA;    targetCell = CType(ws.Cells(ws.Rows.Count, in_ColNumber), Microsoft.Office.Interop.Excel.Range)&#xA;    &#xA;    out_LastRow = targetCell.End(Microsoft.Office.Interop.Excel.XlDirection.xlUp).Row&#xA;    ' ---------------------------------------------------------------&#xA;&#xA;Catch ex As Exception&#xA;    Console.WriteLine(&quot;Error: &quot; &amp; ex.Message)&#xA;    Throw ex&#xA;Finally&#xA;    ' คืนทรัพยากร&#xA;    If wb IsNot Nothing Then&#xA;        wb.Close(False)&#xA;    End If&#xA;    &#xA;    excelApp.Quit()&#xA;    &#xA;    ' Release COM Objects&#xA;    If ws IsNot Nothing Then System.Runtime.InteropServices.Marshal.ReleaseComObject(ws)&#xA;    If wb IsNot Nothing Then System.Runtime.InteropServices.Marshal.ReleaseComObject(wb)&#xA;    If excelApp IsNot Nothing Then System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp)&#xA;End Try" DisplayName="Invoke Code for Get Last Row (Relate Document)" sap:VirtualizedContainerService.HintSize="479,197" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
-                                                  <ui:InvokeCode.Arguments>
-                                                    <InArgument x:TypeArguments="x:String" x:Key="in_FilePath">[strCurrentPredefined]</InArgument>
-                                                    <InArgument x:TypeArguments="x:String" x:Key="in_SheetName">[dtReadRange.Rows( intIndex)("relate_document").ToString.Trim]</InArgument>
-                                                    <InArgument x:TypeArguments="x:Int32" x:Key="in_ColNumber">2</InArgument>
-                                                    <OutArgument x:TypeArguments="x:Int32" x:Key="out_LastRow">[intLastRowRelateDoc]</OutArgument>
-                                                  </ui:InvokeCode.Arguments>
-                                                  <sap:WorkflowViewStateService.ViewState>
-                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                                    </scg:Dictionary>
-                                                  </sap:WorkflowViewStateService.ViewState>
-                                                </ui:InvokeCode>
-                                                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,241" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
-                                                  <ui:MultipleAssign.AssignOperations>
-                                                    <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
-                                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
-                                                        <ui:AssignOperation.To>
-                                                          <OutArgument x:TypeArguments="x:String">[strRangeStopColumn]</OutArgument>
-                                                        </ui:AssignOperation.To>
-                                                        <ui:AssignOperation.Value>
-                                                          <InArgument x:TypeArguments="x:String">[dtReadRange.Rows(0)("relate_range_stop_05").ToString.Replace("?","").Trim]</InArgument>
-                                                        </ui:AssignOperation.Value>
-                                                      </ui:AssignOperation>
-                                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
-                                                        <ui:AssignOperation.To>
-                                                          <OutArgument x:TypeArguments="x:String">[strRangeStart]</OutArgument>
-                                                        </ui:AssignOperation.To>
-                                                        <ui:AssignOperation.Value>
-                                                          <InArgument x:TypeArguments="x:String">[dtReadRange.Rows(0)("relate_range_start_05").ToString]</InArgument>
-                                                        </ui:AssignOperation.Value>
-                                                      </ui:AssignOperation>
-                                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
-                                                        <ui:AssignOperation.To>
-                                                          <OutArgument x:TypeArguments="x:String">[strRangeEnd]</OutArgument>
-                                                        </ui:AssignOperation.To>
-                                                        <ui:AssignOperation.Value>
-                                                          <InArgument x:TypeArguments="x:String">[strRangeStopColumn + intLastRowRelateDoc.ToString]</InArgument>
-                                                        </ui:AssignOperation.Value>
-                                                      </ui:AssignOperation>
-                                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
-                                                        <ui:AssignOperation.To>
-                                                          <OutArgument x:TypeArguments="x:String">[strReadRange]</OutArgument>
-                                                        </ui:AssignOperation.To>
-                                                        <ui:AssignOperation.Value>
-                                                          <InArgument x:TypeArguments="x:String">[strRangeStart + ":" + strRangeEnd]</InArgument>
-                                                        </ui:AssignOperation.Value>
-                                                      </ui:AssignOperation>
-                                                    </scg:List>
-                                                  </ui:MultipleAssign.AssignOperations>
-                                                  <sap:WorkflowViewStateService.ViewState>
-                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                                    </scg:Dictionary>
-                                                  </sap:WorkflowViewStateService.ViewState>
-                                                </ui:MultipleAssign>
-                                                <ueab:ReadRangeX DisplayName="Read Range Relate Document" HasHeaders="False" sap:VirtualizedContainerService.HintSize="479,159" sap2010:WorkflowViewState.IdRef="ReadRangeX_2" Range="[Predefined.Sheet(dtReadRange.Rows( intIndex)(&quot;relate_document&quot;).ToString.Trim).Range( strReadRange)]" ReadFormatting="RawValue" SaveTo="[dtRelateDocument]" VisibleOnly="False">
-                                                  <sap:WorkflowViewStateService.ViewState>
-                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                                    </scg:Dictionary>
-                                                  </sap:WorkflowViewStateService.ViewState>
-                                                </ueab:ReadRangeX>
-                                              </Sequence>
-                                              <Sequence DisplayName="VALIDATE_12 (CONDITION 1)" sap:VirtualizedContainerService.HintSize="450,48" sap2010:WorkflowViewState.IdRef="Sequence_18">
-                                                <sap:WorkflowViewStateService.ViewState>
-                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                                  </scg:Dictionary>
-                                                </sap:WorkflowViewStateService.ViewState>
-                                                <ueab:WriteRangeX Destination="[Valid.Sheet(&quot;Condition1&quot;).Range(strReadRange)]" DisplayName="Write DataTable to Excel" ExcludeHeaders="True" sap:VirtualizedContainerService.HintSize="416,210" sap2010:WorkflowViewState.IdRef="WriteRangeX_1" IgnoreEmptySource="False" Source="[dtRelateDocument]" />
-                                              </Sequence>
-                                            </Sequence>
-                                            <Sequence x:Key="08. Payment &amp; Invoicing" DisplayName="Body" sap:VirtualizedContainerService.HintSize="615,2891" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                                            <Sequence x:Key="05. Progress" DisplayName="Body" sap:VirtualizedContainerService.HintSize="518,305" sap2010:WorkflowViewState.IdRef="Sequence_14">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
-                                              <Sequence DisplayName="PAYMENT &amp; INVOICING" sap:VirtualizedContainerService.HintSize="581,1369" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                                              <Sequence DisplayName="PROGRESS" sap:VirtualizedContainerService.HintSize="484,57" sap2010:WorkflowViewState.IdRef="Sequence_17">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="547,173" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Predefined Excel exists = &quot; + strCurrentPredefined]">
+                                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Predefined Excel exists = &quot; + strCurrentPredefined]">
                                                   <sap:WorkflowViewStateService.ViewState>
                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
                                                 </ui:LogMessage>
-                                                <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim excelApp As New Microsoft.Office.Interop.Excel.Application()&#xA;Dim wb As Microsoft.Office.Interop.Excel.Workbook = Nothing&#xA;Dim ws As Microsoft.Office.Interop.Excel.Worksheet = Nothing&#xA;&#xA;Try&#xA;    ' ปิดการแจ้งเตือนและการอัปเดตหน้าจอ&#xA;    excelApp.Visible = False&#xA;    excelApp.DisplayAlerts = False&#xA;    excelApp.ScreenUpdating = False&#xA;&#xA;    ' เปิดไฟล์ Excel&#xA;    wb = excelApp.Workbooks.Open(in_FilePath)&#xA;    &#xA;    ' เลือก Sheet (Cast เป็น Worksheet ให้ชัดเจน)&#xA;    ws = CType(wb.Sheets(in_SheetName), Microsoft.Office.Interop.Excel.Worksheet)&#xA;&#xA;    ' --- จุดที่แก้ไข (Cast Cells เป็น Range เพื่อแก้ปัญหา Late Binding) ---&#xA;    Dim targetCell As Microsoft.Office.Interop.Excel.Range &#xA;    targetCell = CType(ws.Cells(ws.Rows.Count, in_ColNumber), Microsoft.Office.Interop.Excel.Range)&#xA;    &#xA;    out_LastRow = targetCell.End(Microsoft.Office.Interop.Excel.XlDirection.xlUp).Row&#xA;    ' ---------------------------------------------------------------&#xA;&#xA;Catch ex As Exception&#xA;    Console.WriteLine(&quot;Error: &quot; &amp; ex.Message)&#xA;    Throw ex&#xA;Finally&#xA;    ' คืนทรัพยากร&#xA;    If wb IsNot Nothing Then&#xA;        wb.Close(False)&#xA;    End If&#xA;    &#xA;    excelApp.Quit()&#xA;    &#xA;    ' Release COM Objects&#xA;    If ws IsNot Nothing Then System.Runtime.InteropServices.Marshal.ReleaseComObject(ws)&#xA;    If wb IsNot Nothing Then System.Runtime.InteropServices.Marshal.ReleaseComObject(wb)&#xA;    If excelApp IsNot Nothing Then System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp)&#xA;End Try" DisplayName="Invoke Code for Get Last Row (Relate Document)" sap:VirtualizedContainerService.HintSize="547,197" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
+                                                <Sequence DisplayName="FIND_KEY_TO_FIND" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <Sequence DisplayName="SHEET_EDITED" sap:VirtualizedContainerService.HintSize="664,1076" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <ui:IfElseIfV2 Condition="[dtReadRange.Rows( intIndex)(&quot;relate_document&quot;).ToString.Trim.Contains(&quot;-Edited&quot;)]" DisplayName="Else If" sap:VirtualizedContainerService.HintSize="630,984" sap2010:WorkflowViewState.IdRef="IfElseIfV2_1">
+                                                      <ui:IfElseIfV2.Else>
+                                                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,166" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                            </scg:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                          <Assign sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Assign_13">
+                                                            <Assign.To>
+                                                              <OutArgument x:TypeArguments="x:String">[strSheetName]</OutArgument>
+                                                            </Assign.To>
+                                                            <Assign.Value>
+                                                              <InArgument x:TypeArguments="x:String">[dtReadRange.Rows( intIndex)("relate_document").ToString.Trim]</InArgument>
+                                                            </Assign.Value>
+                                                          </Assign>
+                                                        </Sequence>
+                                                      </ui:IfElseIfV2.Else>
+                                                      <ui:IfElseIfV2.ElseIfs>
+                                                        <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                                                          <ui:IfElseIfBlock BlockType="ElseIf" Condition="[dtReadRange.Rows( intIndex)(&quot;relate_document&quot;).ToString.Trim.Contains(&quot;-Edtied&quot;)]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_1">
+                                                            <ui:IfElseIfBlock.Then>
+                                                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="468,166" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                                <Assign sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Assign_11">
+                                                                  <Assign.To>
+                                                                    <OutArgument x:TypeArguments="x:String">[strSheetName]</OutArgument>
+                                                                  </Assign.To>
+                                                                  <Assign.Value>
+                                                                    <InArgument x:TypeArguments="x:String">[dtReadRange.Rows( intIndex)("relate_document").ToString.Trim.Replace("-Edtied", "").Trim]</InArgument>
+                                                                  </Assign.Value>
+                                                                </Assign>
+                                                              </Sequence>
+                                                            </ui:IfElseIfBlock.Then>
+                                                          </ui:IfElseIfBlock>
+                                                          <ui:IfElseIfBlock BlockType="ElseIf" Condition="[dtReadRange.Rows( intIndex)(&quot;relate_document&quot;).ToString.Trim.Contains(&quot;- Add&quot;)]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_2">
+                                                            <ui:IfElseIfBlock.Then>
+                                                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="468,166" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                                <Assign sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Assign_12">
+                                                                  <Assign.To>
+                                                                    <OutArgument x:TypeArguments="x:String">[strSheetName]</OutArgument>
+                                                                  </Assign.To>
+                                                                  <Assign.Value>
+                                                                    <InArgument x:TypeArguments="x:String">[dtReadRange.Rows( intIndex)("relate_document").ToString.Trim.Replace("- Add", "").Trim]</InArgument>
+                                                                  </Assign.Value>
+                                                                </Assign>
+                                                              </Sequence>
+                                                            </ui:IfElseIfBlock.Then>
+                                                          </ui:IfElseIfBlock>
+                                                        </sc:BindingList>
+                                                      </ui:IfElseIfV2.ElseIfs>
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <ui:IfElseIfV2.Then>
+                                                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,166" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                            </scg:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                          <Assign sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Assign_10">
+                                                            <Assign.To>
+                                                              <OutArgument x:TypeArguments="x:String">[strSheetName]</OutArgument>
+                                                            </Assign.To>
+                                                            <Assign.Value>
+                                                              <InArgument x:TypeArguments="x:String">[dtReadRange.Rows( intIndex)("relate_document").ToString.Trim.Replace("-Edited", "").Trim]</InArgument>
+                                                            </Assign.Value>
+                                                          </Assign>
+                                                        </Sequence>
+                                                      </ui:IfElseIfV2.Then>
+                                                    </ui:IfElseIfV2>
+                                                  </Sequence>
+                                                  <ui:LookupDataTable CellValue="{x:Null}" LookupColumnIndex="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[dtStoredConfig]" DisplayName="Lookup Data Table" sap:VirtualizedContainerService.HintSize="664,320" sap2010:WorkflowViewState.IdRef="LookupDataTable_1" LookupColumnName="Sheet_Name" LookupValue="[strSheetName]" RowIndex="[intRowIndex]">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </ui:LookupDataTable>
+                                                </Sequence>
+                                                <Assign sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="Assign_6">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:String">[strKeyToFind]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:String">[dtStoredConfig.Rows(intRowIndex)("Key_to_find").ToString.Trim]</InArgument>
+                                                  </Assign.Value>
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                </Assign>
+                                                <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim excelApp As New Microsoft.Office.Interop.Excel.Application()&#xA;Dim wb As Microsoft.Office.Interop.Excel.Workbook = Nothing&#xA;Dim ws As Microsoft.Office.Interop.Excel.Worksheet = Nothing&#xA;&#xA;Try&#xA;    ' ปิดการแจ้งเตือนและการอัปเดตหน้าจอ&#xA;    excelApp.Visible = False&#xA;    excelApp.DisplayAlerts = False&#xA;    excelApp.ScreenUpdating = False&#xA;&#xA;    ' เปิดไฟล์ Excel&#xA;    wb = excelApp.Workbooks.Open(in_FilePath)&#xA;    &#xA;    ' เลือก Sheet (Cast เป็น Worksheet ให้ชัดเจน)&#xA;    ws = CType(wb.Sheets(in_SheetName), Microsoft.Office.Interop.Excel.Worksheet)&#xA;&#xA;    ' =========================================================&#xA;    ' --- เคลียร์เฉพาะ Filter เพื่อให้หา Last Row ที่ซ่อนจากการฟิลเตอร์เจอ ---&#xA;    Try&#xA;        ' 1. ปิด AutoFilter แบบธรรมดา (ถ้ามีการเปิดไว้บนหัวตาราง)&#xA;        ws.AutoFilterMode = False&#xA;        &#xA;        ' 2. ถ้า Sheet ยังอยู่ในสถานะ Filter (เช่น ติด Filter ในรูปแบบ Table) ให้แสดงข้อมูลทั้งหมด&#xA;        If ws.FilterMode Then&#xA;            ws.ShowAllData()&#xA;        End If&#xA;    Catch exFilter As Exception&#xA;        ' ถ้าปลด Filter ไม่ได้ ให้เขียนแจ้งเตือนและทำงานต่อ&#xA;        Console.WriteLine(&quot;Warning Filter: &quot; &amp; exFilter.Message)&#xA;    End Try&#xA;    ' =========================================================&#xA;&#xA;    Dim maxLastRow As Integer = 0&#xA;    &#xA;    ' --- วนลูปตาม List ของ Key_to_find เพื่อหาคำที่ต้องการ (Value) ---&#xA;    For Each key As String In in_KeysToFind&#xA;        If Not String.IsNullOrWhiteSpace(key) Then&#xA;            Dim cleanKey As String = key.Trim()&#xA;            &#xA;            ' ค้นหา Value ใน Worksheet (ค้นหาทั้ง Sheet แบบ Exact Match)&#xA;            Dim foundCell As Microsoft.Office.Interop.Excel.Range = ws.UsedRange.Find(&#xA;                What:=cleanKey, &#xA;                LookIn:=Microsoft.Office.Interop.Excel.XlFindLookIn.xlValues, &#xA;                LookAt:=Microsoft.Office.Interop.Excel.XlLookAt.xlWhole&#xA;            )&#xA;            &#xA;            ' หากพบคำนั้นใน Sheet&#xA;            If foundCell IsNot Nothing Then&#xA;                ' ดึงหมายเลขคอลัมน์จากเซลล์ที่เจอ&#xA;                Dim colIndex As Integer = foundCell.Column&#xA;                &#xA;                Dim targetCell As Microsoft.Office.Interop.Excel.Range &#xA;                targetCell = CType(ws.Cells(ws.Rows.Count, colIndex), Microsoft.Office.Interop.Excel.Range)&#xA;                &#xA;                ' หาแถวสุดท้ายของคอลัมน์นั้น&#xA;                Dim currentLastRow As Integer = targetCell.End(Microsoft.Office.Interop.Excel.XlDirection.xlUp).Row&#xA;                &#xA;                ' เปรียบเทียบและเก็บค่า Last Row ที่มากที่สุด (ลึกที่สุด)&#xA;                If currentLastRow &gt; maxLastRow Then&#xA;                    maxLastRow = currentLastRow&#xA;                End If&#xA;                &#xA;                ' คืนทรัพยากรตัวแปรเซลล์ที่หาเจอ&#xA;                System.Runtime.InteropServices.Marshal.ReleaseComObject(foundCell)&#xA;            Else&#xA;                ' หากไม่พบคำนั้น ให้เขียนแจ้งเตือนใน Console (ไม่ Error แต่จะข้ามไปหาคำต่อไป)&#xA;                Console.WriteLine(&quot;Warning: Not found value '&quot; &amp; cleanKey &amp; &quot;' in sheet.&quot;)&#xA;            End If&#xA;        End If&#xA;    Next&#xA;    &#xA;    ' หากไม่พบข้อมูลเลย หรือมีแต่ไฟล์ว่าง ให้คืนค่าเป็น 1&#xA;    If maxLastRow = 0 Then maxLastRow = 1&#xA;    &#xA;    out_LastRow = maxLastRow&#xA;    ' ---------------------------------------------------------------&#xA;&#xA;Catch ex As Exception&#xA;    out_ErrorMessage = ex.Message&#xA;    Console.WriteLine(&quot;Error: &quot; &amp; ex.Message)&#xA;    &#xA;Finally&#xA;    ' คืนทรัพยากร (ปิดไฟล์โดยไม่ Save การปลด Filter จะไม่กระทบไฟล์ต้นฉบับ)&#xA;    If wb IsNot Nothing Then&#xA;        wb.Close(False)&#xA;    End If&#xA;    &#xA;    excelApp.Quit()&#xA;    &#xA;    ' Release COM Objects&#xA;    If ws IsNot Nothing Then System.Runtime.InteropServices.Marshal.ReleaseComObject(ws)&#xA;    If wb IsNot Nothing Then System.Runtime.InteropServices.Marshal.ReleaseComObject(wb)&#xA;    If excelApp IsNot Nothing Then System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp)&#xA;End Try" DisplayName="Invoke Code for Get Last Row by Key" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="InvokeCode_3">
                                                   <ui:InvokeCode.Arguments>
-                                                    <InArgument x:TypeArguments="x:String" x:Key="in_FilePath">[strCurrentPredefined]</InArgument>
-                                                    <InArgument x:TypeArguments="x:String" x:Key="in_SheetName">[dtReadRange.Rows( intIndex)("relate_document").ToString.Trim]</InArgument>
-                                                    <InArgument x:TypeArguments="x:Int32" x:Key="in_ColNumber">2</InArgument>
-                                                    <OutArgument x:TypeArguments="x:Int32" x:Key="out_LastRow">[intLastRowRelateDoc]</OutArgument>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="in_FilePath">
+                                                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strCurrentPredefined" />
+                                                    </InArgument>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="in_SheetName">
+                                                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="dtReadRange.Rows( intIndex)(&quot;relate_document&quot;).ToString.Trim" />
+                                                    </InArgument>
+                                                    <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_KeysToFind">
+                                                      <VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="strKeyToFind.Split(&quot;,&quot;c).ToList" />
+                                                    </InArgument>
+                                                    <OutArgument x:TypeArguments="x:Int32" x:Key="out_LastRow">
+                                                      <VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="lastRow" />
+                                                    </OutArgument>
+                                                    <OutArgument x:TypeArguments="x:String" x:Key="out_ErrorMessage">
+                                                      <VisualBasicReference x:TypeArguments="x:String" ExpressionText="strCodeErrorMessage" />
+                                                    </OutArgument>
                                                   </ui:InvokeCode.Arguments>
                                                   <sap:WorkflowViewStateService.ViewState>
                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
                                                 </ui:InvokeCode>
-                                                <If Condition="[intLastRowRelateDoc &gt;= CInt(System.Text.RegularExpressions.Regex.Replace(dtReadRange.Rows(0)(&quot;relate_range_start_08&quot;).ToString().Trim(), &quot;[^0-9]&quot;, String.Empty))]" DisplayName="Check Last Row" sap:VirtualizedContainerService.HintSize="547,907" sap2010:WorkflowViewState.IdRef="If_2">
+                                                <Assign sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="Assign_7">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:Int32">[intLastRowRelateDoc]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:Int32">[CInt(lastRow)]</InArgument>
+                                                  </Assign.Value>
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                </Assign>
+                                                <If Condition="[intLastRowRelateDoc &gt;= CInt(System.Text.RegularExpressions.Regex.Replace(dtReadRange.Rows(0)(&quot;relate_range_start_05&quot;).ToString().Trim(), &quot;[^0-9]&quot;, String.Empty))]" DisplayName="Check Last Row" sap:VirtualizedContainerService.HintSize="450,48" sap2010:WorkflowViewState.IdRef="If_4">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
                                                   <If.Then>
-                                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="513,522" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,335" sap2010:WorkflowViewState.IdRef="Sequence_29">
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                         </scg:Dictionary>
                                                       </sap:WorkflowViewStateService.ViewState>
-                                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Last Row Relate Document is more than Range Start : &quot; + intLastRowRelateDoc.ToString + &quot;&gt;=&quot; + CInt(System.Text.RegularExpressions.Regex.Replace(dtReadRange.Rows(0)(&quot;relate_range_start_08&quot;).ToString().Trim(), &quot;[^0-9]&quot;, String.Empty)).ToString]" />
-                                                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,241" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,57" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Last Row Relate Document is more than Range Start : &quot; + intLastRowRelateDoc.ToString + &quot;&gt;=&quot; + CInt(System.Text.RegularExpressions.Regex.Replace(dtReadRange.Rows(0)(&quot;relate_range_start_05&quot;).ToString().Trim(), &quot;[^0-9]&quot;, String.Empty)).ToString]">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                      </ui:LogMessage>
+                                                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="382,57" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
+                                                        <ui:MultipleAssign.AssignOperations>
+                                                          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                                                              <ui:AssignOperation.To>
+                                                                <OutArgument x:TypeArguments="x:String">[strRangeStopColumn]</OutArgument>
+                                                              </ui:AssignOperation.To>
+                                                              <ui:AssignOperation.Value>
+                                                                <InArgument x:TypeArguments="x:String">[dtReadRange.Rows(0)("relate_range_stop_05").ToString.Replace("?","").Trim]</InArgument>
+                                                              </ui:AssignOperation.Value>
+                                                            </ui:AssignOperation>
+                                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                                                              <ui:AssignOperation.To>
+                                                                <OutArgument x:TypeArguments="x:String">[strRangeStart]</OutArgument>
+                                                              </ui:AssignOperation.To>
+                                                              <ui:AssignOperation.Value>
+                                                                <InArgument x:TypeArguments="x:String">[dtReadRange.Rows(0)("relate_range_start_05").ToString]</InArgument>
+                                                              </ui:AssignOperation.Value>
+                                                            </ui:AssignOperation>
+                                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+                                                              <ui:AssignOperation.To>
+                                                                <OutArgument x:TypeArguments="x:String">[strRangeEnd]</OutArgument>
+                                                              </ui:AssignOperation.To>
+                                                              <ui:AssignOperation.Value>
+                                                                <InArgument x:TypeArguments="x:String">[strRangeStopColumn + intLastRowRelateDoc.ToString]</InArgument>
+                                                              </ui:AssignOperation.Value>
+                                                            </ui:AssignOperation>
+                                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
+                                                              <ui:AssignOperation.To>
+                                                                <OutArgument x:TypeArguments="x:String">[strReadRange]</OutArgument>
+                                                              </ui:AssignOperation.To>
+                                                              <ui:AssignOperation.Value>
+                                                                <InArgument x:TypeArguments="x:String">[strRangeStart + ":" + strRangeEnd]</InArgument>
+                                                              </ui:AssignOperation.Value>
+                                                            </ui:AssignOperation>
+                                                          </scg:List>
+                                                        </ui:MultipleAssign.AssignOperations>
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                      </ui:MultipleAssign>
+                                                      <ueab:ReadRangeX DisplayName="Read Range Relate Document" HasHeaders="False" sap:VirtualizedContainerService.HintSize="382,161" sap2010:WorkflowViewState.IdRef="ReadRangeX_4" Range="[Predefined.Sheet(dtReadRange.Rows( intIndex)(&quot;relate_document&quot;).ToString.Trim).Range( strReadRange)]" ReadFormatting="RawValue" SaveTo="[dtRelateDocument]" VisibleOnly="False">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                      </ueab:ReadRangeX>
+                                                    </Sequence>
+                                                  </If.Then>
+                                                  <If.Else>
+                                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,226" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,166" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;Last Row Relate Document is less than Range Start : &quot; + intLastRowRelateDoc.ToString + &quot;&lt;&quot; + CInt(System.Text.RegularExpressions.Regex.Replace(dtReadRange.Rows(0)(&quot;relate_range_start_08&quot;).ToString().Trim(), &quot;[^0-9]&quot;, String.Empty)).ToString]" />
+                                                    </Sequence>
+                                                  </If.Else>
+                                                </If>
+                                              </Sequence>
+                                              <Sequence DisplayName="VALIDATE_12 (CONDITION 1)" sap:VirtualizedContainerService.HintSize="484,188" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <Sequence DisplayName="CLEAR_RANGE_VALIDATION" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim excelApp As New Microsoft.Office.Interop.Excel.Application()&#xA;Dim wb As Microsoft.Office.Interop.Excel.Workbook = Nothing&#xA;Dim ws As Microsoft.Office.Interop.Excel.Worksheet = Nothing&#xA;&#xA;Try&#xA;    ' ปิดการแจ้งเตือนและการอัปเดตหน้าจอ&#xA;    excelApp.Visible = False&#xA;    excelApp.DisplayAlerts = False&#xA;    excelApp.ScreenUpdating = False&#xA;&#xA;    ' เปิดไฟล์ Excel&#xA;    wb = excelApp.Workbooks.Open(in_FilePath)&#xA;    &#xA;    ' เลือก Sheet (Cast เป็น Worksheet ให้ชัดเจน)&#xA;    ws = CType(wb.Sheets(in_SheetName), Microsoft.Office.Interop.Excel.Worksheet)&#xA;&#xA;    ' =========================================================&#xA;    ' --- เคลียร์เฉพาะ Filter เพื่อให้หา Last Row ที่ซ่อนจากการฟิลเตอร์เจอ ---&#xA;    Try&#xA;        ' 1. ปิด AutoFilter แบบธรรมดา (ถ้ามีการเปิดไว้บนหัวตาราง)&#xA;        ws.AutoFilterMode = False&#xA;        &#xA;        ' 2. ถ้า Sheet ยังอยู่ในสถานะ Filter (เช่น ติด Filter ในรูปแบบ Table) ให้แสดงข้อมูลทั้งหมด&#xA;        If ws.FilterMode Then&#xA;            ws.ShowAllData()&#xA;        End If&#xA;    Catch exFilter As Exception&#xA;        ' ถ้าปลด Filter ไม่ได้ ให้เขียนแจ้งเตือนและทำงานต่อ&#xA;        Console.WriteLine(&quot;Warning Filter: &quot; &amp; exFilter.Message)&#xA;    End Try&#xA;    ' =========================================================&#xA;&#xA;    Dim maxLastRow As Integer = 0&#xA;    &#xA;    ' --- วนลูปตาม List ของ Key_to_find เพื่อหาคำที่ต้องการ (Value) ---&#xA;    For Each key As String In in_KeysToFind&#xA;        If Not String.IsNullOrWhiteSpace(key) Then&#xA;            Dim cleanKey As String = key.Trim()&#xA;            &#xA;            ' ค้นหา Value ใน Worksheet (ค้นหาทั้ง Sheet แบบ Exact Match)&#xA;            Dim foundCell As Microsoft.Office.Interop.Excel.Range = ws.UsedRange.Find(&#xA;                What:=cleanKey, &#xA;                LookIn:=Microsoft.Office.Interop.Excel.XlFindLookIn.xlValues, &#xA;                LookAt:=Microsoft.Office.Interop.Excel.XlLookAt.xlWhole&#xA;            )&#xA;            &#xA;            ' หากพบคำนั้นใน Sheet&#xA;            If foundCell IsNot Nothing Then&#xA;                ' ดึงหมายเลขคอลัมน์จากเซลล์ที่เจอ&#xA;                Dim colIndex As Integer = foundCell.Column&#xA;                &#xA;                Dim targetCell As Microsoft.Office.Interop.Excel.Range &#xA;                targetCell = CType(ws.Cells(ws.Rows.Count, colIndex), Microsoft.Office.Interop.Excel.Range)&#xA;                &#xA;                ' หาแถวสุดท้ายของคอลัมน์นั้น&#xA;                Dim currentLastRow As Integer = targetCell.End(Microsoft.Office.Interop.Excel.XlDirection.xlUp).Row&#xA;                &#xA;                ' เปรียบเทียบและเก็บค่า Last Row ที่มากที่สุด (ลึกที่สุด)&#xA;                If currentLastRow &gt; maxLastRow Then&#xA;                    maxLastRow = currentLastRow&#xA;                End If&#xA;                &#xA;                ' คืนทรัพยากรตัวแปรเซลล์ที่หาเจอ&#xA;                System.Runtime.InteropServices.Marshal.ReleaseComObject(foundCell)&#xA;            Else&#xA;                ' หากไม่พบคำนั้น ให้เขียนแจ้งเตือนใน Console (ไม่ Error แต่จะข้ามไปหาคำต่อไป)&#xA;                Console.WriteLine(&quot;Warning: Not found value '&quot; &amp; cleanKey &amp; &quot;' in sheet.&quot;)&#xA;            End If&#xA;        End If&#xA;    Next&#xA;    &#xA;    ' หากไม่พบข้อมูลเลย หรือมีแต่ไฟล์ว่าง ให้คืนค่าเป็น 1&#xA;    If maxLastRow = 0 Then maxLastRow = 1&#xA;    &#xA;    out_LastRow = maxLastRow&#xA;    ' ---------------------------------------------------------------&#xA;&#xA;Catch ex As Exception&#xA;    out_ErrorMessage = ex.Message&#xA;    Console.WriteLine(&quot;Error: &quot; &amp; ex.Message)&#xA;    &#xA;Finally&#xA;    ' คืนทรัพยากร (ปิดไฟล์โดยไม่ Save การปลด Filter จะไม่กระทบไฟล์ต้นฉบับ)&#xA;    If wb IsNot Nothing Then&#xA;        wb.Close(False)&#xA;    End If&#xA;    &#xA;    excelApp.Quit()&#xA;    &#xA;    ' Release COM Objects&#xA;    If ws IsNot Nothing Then System.Runtime.InteropServices.Marshal.ReleaseComObject(ws)&#xA;    If wb IsNot Nothing Then System.Runtime.InteropServices.Marshal.ReleaseComObject(wb)&#xA;    If excelApp IsNot Nothing Then System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp)&#xA;End Try" DisplayName="Invoke Code for Get Last Row by Key" sap:VirtualizedContainerService.HintSize="502,197" sap2010:WorkflowViewState.IdRef="InvokeCode_4">
+                                                    <ui:InvokeCode.Arguments>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="in_FilePath">
+                                                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strTempFileValidationFolderPath + strValidateFileName+&quot;.xlsx&quot;" />
+                                                      </InArgument>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="in_SheetName">
+                                                        <Literal x:TypeArguments="x:String">Condition1</Literal>
+                                                      </InArgument>
+                                                      <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_KeysToFind">
+                                                        <VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="strKeyToFind.Split(&quot;,&quot;c).ToList" />
+                                                      </InArgument>
+                                                      <OutArgument x:TypeArguments="x:Int32" x:Key="out_LastRow">
+                                                        <VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="lastRow" />
+                                                      </OutArgument>
+                                                      <OutArgument x:TypeArguments="x:String" x:Key="out_ErrorMessage">
+                                                        <VisualBasicReference x:TypeArguments="x:String" ExpressionText="strCodeErrorMessage" />
+                                                      </OutArgument>
+                                                    </ui:InvokeCode.Arguments>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </ui:InvokeCode>
+                                                  <Assign sap:VirtualizedContainerService.HintSize="502,57" sap2010:WorkflowViewState.IdRef="Assign_9">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:Int32">[intLastRowIndex]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:Int32">[CInt(lastRow)]</InArgument>
+                                                    </Assign.Value>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </Assign>
+                                                  <If Condition="[intLastRowIndex &gt;= CInt(System.Text.RegularExpressions.Regex.Replace(dtReadRange.Rows(0)(&quot;relate_range_start_05&quot;).ToString().Trim(), &quot;[^0-9]&quot;, String.Empty))]" DisplayName="Check Last Row of Validation File" sap:VirtualizedContainerService.HintSize="502,899" sap2010:WorkflowViewState.IdRef="If_5">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <If.Then>
+                                                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,511" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                                                        <Sequence.Variables>
+                                                          <Variable x:TypeArguments="x:String" Name="strReadRangeDelete" />
+                                                        </Sequence.Variables>
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <Assign sap:VirtualizedContainerService.HintSize="434,115" sap2010:WorkflowViewState.IdRef="Assign_8">
+                                                          <Assign.To>
+                                                            <OutArgument x:TypeArguments="x:String">[strReadRangeDelete]</OutArgument>
+                                                          </Assign.To>
+                                                          <Assign.Value>
+                                                            <InArgument x:TypeArguments="x:String">[dtReadRange.Rows(0)("relate_range_start_05").ToString + ":" + dtReadRange.Rows(0)("relate_range_stop_05").ToString.Replace("?","").Trim + intLastRowIndex.ToString]</InArgument>
+                                                          </Assign.Value>
+                                                        </Assign>
+                                                        <ueab:ClearRangeX DisplayName="Clear Sheet/Range/Table" HasHeaders="False" sap:VirtualizedContainerService.HintSize="434,170" sap2010:WorkflowViewState.IdRef="ClearRangeX_2" TargetRange="[Valid.Sheet(&quot;Condition1&quot;).Range(strReadRangeDelete)]" />
+                                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,166" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;Clear Range of Condition1 Sheet in Validation_12 = &quot; + strReadRangeDelete]" />
+                                                      </Sequence>
+                                                    </If.Then>
+                                                    <If.Else>
+                                                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,226" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,166" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[&quot;No Data to Clear Range of Condition1 Sheet in Validation_12&quot;]" />
+                                                      </Sequence>
+                                                    </If.Else>
+                                                  </If>
+                                                </Sequence>
+                                                <If Condition="[intLastRowRelateDoc &gt;= CInt(System.Text.RegularExpressions.Regex.Replace(dtReadRange.Rows(0)(&quot;relate_range_start_05&quot;).ToString().Trim(), &quot;[^0-9]&quot;, String.Empty))]" DisplayName="Check Write Data Table" sap:VirtualizedContainerService.HintSize="450,48" sap2010:WorkflowViewState.IdRef="If_8">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <If.Then>
+                                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,448" sap2010:WorkflowViewState.IdRef="Sequence_50">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <ueab:WriteRangeX Destination="[Valid.Sheet(&quot;Condition1&quot;).Range(strReadRange)]" DisplayName="Write DataTable to Excel" ExcludeHeaders="True" sap:VirtualizedContainerService.HintSize="382,222" sap2010:WorkflowViewState.IdRef="WriteRangeX_3" IgnoreEmptySource="False" Source="[dtRelateDocument]" />
+                                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,166" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="Info" Message="[&quot;Write Data Table Count = &quot; + dtRelateDocument.RowCount.ToString]" />
+                                                    </Sequence>
+                                                  </If.Then>
+                                                  <If.Else>
+                                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,226" sap2010:WorkflowViewState.IdRef="Sequence_51">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,166" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Info" Message="[&quot;No Data to Write Range in Condition1&quot;]" />
+                                                    </Sequence>
+                                                  </If.Else>
+                                                </If>
+                                              </Sequence>
+                                            </Sequence>
+                                            <Sequence x:Key="08. Payment &amp; Invoicing" DisplayName="Body" sap:VirtualizedContainerService.HintSize="604,2281" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <Sequence DisplayName="PAYMENT &amp; INVOICING" sap:VirtualizedContainerService.HintSize="570,57" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Predefined Excel exists = &quot; + strCurrentPredefined]">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                </ui:LogMessage>
+                                                <Sequence DisplayName="FIND_KEY_TO_FIND" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <Sequence DisplayName="SHEET_EDITED" sap:VirtualizedContainerService.HintSize="664,1076" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <ui:IfElseIfV2 Condition="[dtReadRange.Rows( intIndex)(&quot;relate_document&quot;).ToString.Trim.Contains(&quot;-Edited&quot;)]" DisplayName="Else If" sap:VirtualizedContainerService.HintSize="630,984" sap2010:WorkflowViewState.IdRef="IfElseIfV2_2">
+                                                      <ui:IfElseIfV2.Else>
+                                                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,166" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                            </scg:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                          <Assign sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Assign_19">
+                                                            <Assign.To>
+                                                              <OutArgument x:TypeArguments="x:String">[strSheetName]</OutArgument>
+                                                            </Assign.To>
+                                                            <Assign.Value>
+                                                              <InArgument x:TypeArguments="x:String">[dtReadRange.Rows( intIndex)("relate_document").ToString.Trim]</InArgument>
+                                                            </Assign.Value>
+                                                          </Assign>
+                                                        </Sequence>
+                                                      </ui:IfElseIfV2.Else>
+                                                      <ui:IfElseIfV2.ElseIfs>
+                                                        <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                                                          <ui:IfElseIfBlock BlockType="ElseIf" Condition="[dtReadRange.Rows( intIndex)(&quot;relate_document&quot;).ToString.Trim.Contains(&quot;-Edtied&quot;)]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_3">
+                                                            <ui:IfElseIfBlock.Then>
+                                                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="468,166" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                                <Assign sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Assign_17">
+                                                                  <Assign.To>
+                                                                    <OutArgument x:TypeArguments="x:String">[strSheetName]</OutArgument>
+                                                                  </Assign.To>
+                                                                  <Assign.Value>
+                                                                    <InArgument x:TypeArguments="x:String">[dtReadRange.Rows( intIndex)("relate_document").ToString.Trim.Replace("-Edtied", "").Trim]</InArgument>
+                                                                  </Assign.Value>
+                                                                </Assign>
+                                                              </Sequence>
+                                                            </ui:IfElseIfBlock.Then>
+                                                          </ui:IfElseIfBlock>
+                                                          <ui:IfElseIfBlock BlockType="ElseIf" Condition="[dtReadRange.Rows( intIndex)(&quot;relate_document&quot;).ToString.Trim.Contains(&quot;- Add&quot;)]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_4">
+                                                            <ui:IfElseIfBlock.Then>
+                                                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="468,166" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                                <Assign sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Assign_18">
+                                                                  <Assign.To>
+                                                                    <OutArgument x:TypeArguments="x:String">[strSheetName]</OutArgument>
+                                                                  </Assign.To>
+                                                                  <Assign.Value>
+                                                                    <InArgument x:TypeArguments="x:String">[dtReadRange.Rows( intIndex)("relate_document").ToString.Trim.Replace("- Add", "").Trim]</InArgument>
+                                                                  </Assign.Value>
+                                                                </Assign>
+                                                              </Sequence>
+                                                            </ui:IfElseIfBlock.Then>
+                                                          </ui:IfElseIfBlock>
+                                                        </sc:BindingList>
+                                                      </ui:IfElseIfV2.ElseIfs>
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <ui:IfElseIfV2.Then>
+                                                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,166" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                            </scg:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                          <Assign sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Assign_16">
+                                                            <Assign.To>
+                                                              <OutArgument x:TypeArguments="x:String">[strSheetName]</OutArgument>
+                                                            </Assign.To>
+                                                            <Assign.Value>
+                                                              <InArgument x:TypeArguments="x:String">[dtReadRange.Rows( intIndex)("relate_document").ToString.Trim.Replace("-Edited", "").Trim]</InArgument>
+                                                            </Assign.Value>
+                                                          </Assign>
+                                                        </Sequence>
+                                                      </ui:IfElseIfV2.Then>
+                                                    </ui:IfElseIfV2>
+                                                  </Sequence>
+                                                  <ui:LookupDataTable CellValue="{x:Null}" LookupColumnIndex="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[dtStoredConfig]" DisplayName="Lookup Data Table" sap:VirtualizedContainerService.HintSize="664,320" sap2010:WorkflowViewState.IdRef="LookupDataTable_2" LookupColumnName="Sheet_Name" LookupValue="[strSheetName]" RowIndex="[intRowIndex]">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </ui:LookupDataTable>
+                                                </Sequence>
+                                                <Assign sap:VirtualizedContainerService.HintSize="450,115" sap2010:WorkflowViewState.IdRef="Assign_14">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:String">[strKeyToFind]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:String">[dtStoredConfig.Rows(intRowIndex)("Key_to_find").ToString.Trim]</InArgument>
+                                                  </Assign.Value>
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                </Assign>
+                                                <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim excelApp As New Microsoft.Office.Interop.Excel.Application()&#xA;Dim wb As Microsoft.Office.Interop.Excel.Workbook = Nothing&#xA;Dim ws As Microsoft.Office.Interop.Excel.Worksheet = Nothing&#xA;&#xA;Try&#xA;    ' ปิดการแจ้งเตือนและการอัปเดตหน้าจอ&#xA;    excelApp.Visible = False&#xA;    excelApp.DisplayAlerts = False&#xA;    excelApp.ScreenUpdating = False&#xA;&#xA;    ' เปิดไฟล์ Excel&#xA;    wb = excelApp.Workbooks.Open(in_FilePath)&#xA;    &#xA;    ' เลือก Sheet (Cast เป็น Worksheet ให้ชัดเจน)&#xA;    ws = CType(wb.Sheets(in_SheetName), Microsoft.Office.Interop.Excel.Worksheet)&#xA;&#xA;    ' =========================================================&#xA;    ' --- เคลียร์เฉพาะ Filter เพื่อให้หา Last Row ที่ซ่อนจากการฟิลเตอร์เจอ ---&#xA;    Try&#xA;        ' 1. ปิด AutoFilter แบบธรรมดา (ถ้ามีการเปิดไว้บนหัวตาราง)&#xA;        ws.AutoFilterMode = False&#xA;        &#xA;        ' 2. ถ้า Sheet ยังอยู่ในสถานะ Filter (เช่น ติด Filter ในรูปแบบ Table) ให้แสดงข้อมูลทั้งหมด&#xA;        If ws.FilterMode Then&#xA;            ws.ShowAllData()&#xA;        End If&#xA;    Catch exFilter As Exception&#xA;        ' ถ้าปลด Filter ไม่ได้ ให้เขียนแจ้งเตือนและทำงานต่อ&#xA;        Console.WriteLine(&quot;Warning Filter: &quot; &amp; exFilter.Message)&#xA;    End Try&#xA;    ' =========================================================&#xA;&#xA;    Dim maxLastRow As Integer = 0&#xA;    &#xA;    ' --- วนลูปตาม List ของ Key_to_find เพื่อหาคำที่ต้องการ (Value) ---&#xA;    For Each key As String In in_KeysToFind&#xA;        If Not String.IsNullOrWhiteSpace(key) Then&#xA;            Dim cleanKey As String = key.Trim()&#xA;            &#xA;            ' ค้นหา Value ใน Worksheet (ค้นหาทั้ง Sheet แบบ Exact Match)&#xA;            Dim foundCell As Microsoft.Office.Interop.Excel.Range = ws.UsedRange.Find(&#xA;                What:=cleanKey, &#xA;                LookIn:=Microsoft.Office.Interop.Excel.XlFindLookIn.xlValues, &#xA;                LookAt:=Microsoft.Office.Interop.Excel.XlLookAt.xlWhole&#xA;            )&#xA;            &#xA;            ' หากพบคำนั้นใน Sheet&#xA;            If foundCell IsNot Nothing Then&#xA;                ' ดึงหมายเลขคอลัมน์จากเซลล์ที่เจอ&#xA;                Dim colIndex As Integer = foundCell.Column&#xA;                &#xA;                Dim targetCell As Microsoft.Office.Interop.Excel.Range &#xA;                targetCell = CType(ws.Cells(ws.Rows.Count, colIndex), Microsoft.Office.Interop.Excel.Range)&#xA;                &#xA;                ' หาแถวสุดท้ายของคอลัมน์นั้น&#xA;                Dim currentLastRow As Integer = targetCell.End(Microsoft.Office.Interop.Excel.XlDirection.xlUp).Row&#xA;                &#xA;                ' เปรียบเทียบและเก็บค่า Last Row ที่มากที่สุด (ลึกที่สุด)&#xA;                If currentLastRow &gt; maxLastRow Then&#xA;                    maxLastRow = currentLastRow&#xA;                End If&#xA;                &#xA;                ' คืนทรัพยากรตัวแปรเซลล์ที่หาเจอ&#xA;                System.Runtime.InteropServices.Marshal.ReleaseComObject(foundCell)&#xA;            Else&#xA;                ' หากไม่พบคำนั้น ให้เขียนแจ้งเตือนใน Console (ไม่ Error แต่จะข้ามไปหาคำต่อไป)&#xA;                Console.WriteLine(&quot;Warning: Not found value '&quot; &amp; cleanKey &amp; &quot;' in sheet.&quot;)&#xA;            End If&#xA;        End If&#xA;    Next&#xA;    &#xA;    ' หากไม่พบข้อมูลเลย หรือมีแต่ไฟล์ว่าง ให้คืนค่าเป็น 1&#xA;    If maxLastRow = 0 Then maxLastRow = 1&#xA;    &#xA;    out_LastRow = maxLastRow&#xA;    ' ---------------------------------------------------------------&#xA;&#xA;Catch ex As Exception&#xA;    out_ErrorMessage = ex.Message&#xA;    Console.WriteLine(&quot;Error: &quot; &amp; ex.Message)&#xA;    &#xA;Finally&#xA;    ' คืนทรัพยากร (ปิดไฟล์โดยไม่ Save การปลด Filter จะไม่กระทบไฟล์ต้นฉบับ)&#xA;    If wb IsNot Nothing Then&#xA;        wb.Close(False)&#xA;    End If&#xA;    &#xA;    excelApp.Quit()&#xA;    &#xA;    ' Release COM Objects&#xA;    If ws IsNot Nothing Then System.Runtime.InteropServices.Marshal.ReleaseComObject(ws)&#xA;    If wb IsNot Nothing Then System.Runtime.InteropServices.Marshal.ReleaseComObject(wb)&#xA;    If excelApp IsNot Nothing Then System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp)&#xA;End Try" DisplayName="Invoke Code for Get Last Row by Key" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="InvokeCode_5">
+                                                  <ui:InvokeCode.Arguments>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="in_FilePath">[strCurrentPredefined]</InArgument>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="in_SheetName">[dtReadRange.Rows( intIndex)("relate_document").ToString.Trim]</InArgument>
+                                                    <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_KeysToFind">[strKeyToFind.Split(","c).ToList]</InArgument>
+                                                    <OutArgument x:TypeArguments="x:Int32" x:Key="out_LastRow">[lastRow]</OutArgument>
+                                                    <OutArgument x:TypeArguments="x:String" x:Key="out_ErrorMessage">[strCodeErrorMessage]</OutArgument>
+                                                  </ui:InvokeCode.Arguments>
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                </ui:InvokeCode>
+                                                <Assign sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="Assign_15">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:Int32">[intLastRowRelateDoc]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:Int32">[CInt(lastRow)]</InArgument>
+                                                  </Assign.Value>
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                </Assign>
+                                                <If Condition="[intLastRowRelateDoc &gt;= CInt(System.Text.RegularExpressions.Regex.Replace(dtReadRange.Rows(0)(&quot;relate_range_start_08&quot;).ToString().Trim(), &quot;[^0-9]&quot;, String.Empty))]" DisplayName="Check Last Row" sap:VirtualizedContainerService.HintSize="450,48" sap2010:WorkflowViewState.IdRef="If_2">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <If.Then>
+                                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="513,638" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,175" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Last Row Relate Document is more than Range Start : &quot; + intLastRowRelateDoc.ToString + &quot;&gt;=&quot; + CInt(System.Text.RegularExpressions.Regex.Replace(dtReadRange.Rows(0)(&quot;relate_range_start_08&quot;).ToString().Trim(), &quot;[^0-9]&quot;, String.Empty)).ToString]" />
+                                                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,242" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
                                                         <ui:MultipleAssign.AssignOperations>
                                                           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                                                             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
@@ -489,10 +937,10 @@
                                                           </scg:Dictionary>
                                                         </sap:WorkflowViewStateService.ViewState>
                                                       </ui:MultipleAssign>
-                                                      <ueab:ReadRangeX DisplayName="Read Range Relate Document" HasHeaders="False" sap:VirtualizedContainerService.HintSize="479,48" sap2010:WorkflowViewState.IdRef="ReadRangeX_3" Range="[Predefined.Sheet(dtReadRange.Rows( intIndex)(&quot;relate_document&quot;).ToString.Trim).Range( strReadRange)]" ReadFormatting="RawValue" SaveTo="[dtRelateDocument]" VisibleOnly="False">
+                                                      <ueab:ReadRangeX DisplayName="Read Range Relate Document" HasHeaders="False" sap:VirtualizedContainerService.HintSize="479,161" sap2010:WorkflowViewState.IdRef="ReadRangeX_3" Range="[Predefined.Sheet(dtReadRange.Rows( intIndex)(&quot;relate_document&quot;).ToString.Trim).Range( strReadRange)]" ReadFormatting="RawValue" SaveTo="[dtRelateDocument]" VisibleOnly="False">
                                                         <sap:WorkflowViewStateService.ViewState>
                                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                           </scg:Dictionary>
                                                         </sap:WorkflowViewStateService.ViewState>
@@ -500,60 +948,140 @@
                                                     </Sequence>
                                                   </If.Then>
                                                   <If.Else>
-                                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,226" sap2010:WorkflowViewState.IdRef="Sequence_24">
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                         </scg:Dictionary>
                                                       </sap:WorkflowViewStateService.ViewState>
-                                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Last Row Relate Document is less than Range Start : &quot; + intLastRowRelateDoc.ToString + &quot;&lt;&quot; + CInt(System.Text.RegularExpressions.Regex.Replace(dtReadRange.Rows(0)(&quot;relate_range_start_08&quot;).ToString().Trim(), &quot;[^0-9]&quot;, String.Empty)).ToString]" />
+                                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,166" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Last Row Relate Document is less than Range Start : &quot; + intLastRowRelateDoc.ToString + &quot;&lt;&quot; + CInt(System.Text.RegularExpressions.Regex.Replace(dtReadRange.Rows(0)(&quot;relate_range_start_08&quot;).ToString().Trim(), &quot;[^0-9]&quot;, String.Empty)).ToString]" />
                                                     </Sequence>
                                                   </If.Else>
                                                 </If>
                                               </Sequence>
-                                              <Sequence DisplayName="VALIDATE_12 (CONDITION 2)" sap:VirtualizedContainerService.HintSize="581,1462" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                                              <Sequence DisplayName="VALIDATE_12 (CONDITION 2)" sap:VirtualizedContainerService.HintSize="570,2164" sap2010:WorkflowViewState.IdRef="Sequence_20">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <ueab:FindFirstLastDataRowX BlankRowsToSkip="20" ColumnName="B" ConfigureLastRowAs="LastPopulatedRow" DisplayName="Find First/Last Data Row" FirstRowIndex="[intFirstRowIndex]" FirstRowOffset="0" HasHeaders="False" sap:VirtualizedContainerService.HintSize="502,269" sap2010:WorkflowViewState.IdRef="FindFirstLastDataRowX_1" LastRowIndex="[intLastRowIndex]" LastRowOffset="0" Range="[Valid.Sheet(&quot;Condition2&quot;)]" VisibleRowsOnly="False" />
-                                                <If Condition="[intLastRowIndex &gt;= CInt(System.Text.RegularExpressions.Regex.Replace(dtReadRange.Rows(0)(&quot;relate_range_start_08&quot;).ToString().Trim(), &quot;[^0-9]&quot;, String.Empty))]" DisplayName="Check Last Row of Validation File" sap:VirtualizedContainerService.HintSize="502,900" sap2010:WorkflowViewState.IdRef="If_3">
+                                                <Sequence DisplayName="CLEAR_RANGE_VALIDATION" sap:VirtualizedContainerService.HintSize="536,1245" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim excelApp As New Microsoft.Office.Interop.Excel.Application()&#xA;Dim wb As Microsoft.Office.Interop.Excel.Workbook = Nothing&#xA;Dim ws As Microsoft.Office.Interop.Excel.Worksheet = Nothing&#xA;&#xA;Try&#xA;    ' ปิดการแจ้งเตือนและการอัปเดตหน้าจอ&#xA;    excelApp.Visible = False&#xA;    excelApp.DisplayAlerts = False&#xA;    excelApp.ScreenUpdating = False&#xA;&#xA;    ' เปิดไฟล์ Excel&#xA;    wb = excelApp.Workbooks.Open(in_FilePath)&#xA;    &#xA;    ' เลือก Sheet (Cast เป็น Worksheet ให้ชัดเจน)&#xA;    ws = CType(wb.Sheets(in_SheetName), Microsoft.Office.Interop.Excel.Worksheet)&#xA;&#xA;    ' =========================================================&#xA;    ' --- เคลียร์เฉพาะ Filter เพื่อให้หา Last Row ที่ซ่อนจากการฟิลเตอร์เจอ ---&#xA;    Try&#xA;        ' 1. ปิด AutoFilter แบบธรรมดา (ถ้ามีการเปิดไว้บนหัวตาราง)&#xA;        ws.AutoFilterMode = False&#xA;        &#xA;        ' 2. ถ้า Sheet ยังอยู่ในสถานะ Filter (เช่น ติด Filter ในรูปแบบ Table) ให้แสดงข้อมูลทั้งหมด&#xA;        If ws.FilterMode Then&#xA;            ws.ShowAllData()&#xA;        End If&#xA;    Catch exFilter As Exception&#xA;        ' ถ้าปลด Filter ไม่ได้ ให้เขียนแจ้งเตือนและทำงานต่อ&#xA;        Console.WriteLine(&quot;Warning Filter: &quot; &amp; exFilter.Message)&#xA;    End Try&#xA;    ' =========================================================&#xA;&#xA;    Dim maxLastRow As Integer = 0&#xA;    &#xA;    ' --- วนลูปตาม List ของ Key_to_find เพื่อหาคำที่ต้องการ (Value) ---&#xA;    For Each key As String In in_KeysToFind&#xA;        If Not String.IsNullOrWhiteSpace(key) Then&#xA;            Dim cleanKey As String = key.Trim()&#xA;            &#xA;            ' ค้นหา Value ใน Worksheet (ค้นหาทั้ง Sheet แบบ Exact Match)&#xA;            Dim foundCell As Microsoft.Office.Interop.Excel.Range = ws.UsedRange.Find(&#xA;                What:=cleanKey, &#xA;                LookIn:=Microsoft.Office.Interop.Excel.XlFindLookIn.xlValues, &#xA;                LookAt:=Microsoft.Office.Interop.Excel.XlLookAt.xlWhole&#xA;            )&#xA;            &#xA;            ' หากพบคำนั้นใน Sheet&#xA;            If foundCell IsNot Nothing Then&#xA;                ' ดึงหมายเลขคอลัมน์จากเซลล์ที่เจอ&#xA;                Dim colIndex As Integer = foundCell.Column&#xA;                &#xA;                Dim targetCell As Microsoft.Office.Interop.Excel.Range &#xA;                targetCell = CType(ws.Cells(ws.Rows.Count, colIndex), Microsoft.Office.Interop.Excel.Range)&#xA;                &#xA;                ' หาแถวสุดท้ายของคอลัมน์นั้น&#xA;                Dim currentLastRow As Integer = targetCell.End(Microsoft.Office.Interop.Excel.XlDirection.xlUp).Row&#xA;                &#xA;                ' เปรียบเทียบและเก็บค่า Last Row ที่มากที่สุด (ลึกที่สุด)&#xA;                If currentLastRow &gt; maxLastRow Then&#xA;                    maxLastRow = currentLastRow&#xA;                End If&#xA;                &#xA;                ' คืนทรัพยากรตัวแปรเซลล์ที่หาเจอ&#xA;                System.Runtime.InteropServices.Marshal.ReleaseComObject(foundCell)&#xA;            Else&#xA;                ' หากไม่พบคำนั้น ให้เขียนแจ้งเตือนใน Console (ไม่ Error แต่จะข้ามไปหาคำต่อไป)&#xA;                Console.WriteLine(&quot;Warning: Not found value '&quot; &amp; cleanKey &amp; &quot;' in sheet.&quot;)&#xA;            End If&#xA;        End If&#xA;    Next&#xA;    &#xA;    ' หากไม่พบข้อมูลเลย หรือมีแต่ไฟล์ว่าง ให้คืนค่าเป็น 1&#xA;    If maxLastRow = 0 Then maxLastRow = 1&#xA;    &#xA;    out_LastRow = maxLastRow&#xA;    ' ---------------------------------------------------------------&#xA;&#xA;Catch ex As Exception&#xA;    out_ErrorMessage = ex.Message&#xA;    Console.WriteLine(&quot;Error: &quot; &amp; ex.Message)&#xA;    &#xA;Finally&#xA;    ' คืนทรัพยากร (ปิดไฟล์โดยไม่ Save การปลด Filter จะไม่กระทบไฟล์ต้นฉบับ)&#xA;    If wb IsNot Nothing Then&#xA;        wb.Close(False)&#xA;    End If&#xA;    &#xA;    excelApp.Quit()&#xA;    &#xA;    ' Release COM Objects&#xA;    If ws IsNot Nothing Then System.Runtime.InteropServices.Marshal.ReleaseComObject(ws)&#xA;    If wb IsNot Nothing Then System.Runtime.InteropServices.Marshal.ReleaseComObject(wb)&#xA;    If excelApp IsNot Nothing Then System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp)&#xA;End Try" DisplayName="Invoke Code for Get Last Row by Key" sap:VirtualizedContainerService.HintSize="502,197" sap2010:WorkflowViewState.IdRef="InvokeCode_6">
+                                                    <ui:InvokeCode.Arguments>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="in_FilePath">
+                                                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strTempFileValidationFolderPath + strValidateFileName+&quot;.xlsx&quot;" />
+                                                      </InArgument>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="in_SheetName">
+                                                        <Literal x:TypeArguments="x:String">Condition2</Literal>
+                                                      </InArgument>
+                                                      <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_KeysToFind">
+                                                        <VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="strKeyToFind.Split(&quot;,&quot;c).ToList" />
+                                                      </InArgument>
+                                                      <OutArgument x:TypeArguments="x:Int32" x:Key="out_LastRow">
+                                                        <VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="lastRow" />
+                                                      </OutArgument>
+                                                      <OutArgument x:TypeArguments="x:String" x:Key="out_ErrorMessage">
+                                                        <VisualBasicReference x:TypeArguments="x:String" ExpressionText="strCodeErrorMessage" />
+                                                      </OutArgument>
+                                                    </ui:InvokeCode.Arguments>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </ui:InvokeCode>
+                                                  <Assign sap:VirtualizedContainerService.HintSize="502,57" sap2010:WorkflowViewState.IdRef="Assign_20">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:Int32">[intLastRowIndex]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:Int32">[CInt(lastRow)]</InArgument>
+                                                    </Assign.Value>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </Assign>
+                                                  <If Condition="[intLastRowIndex &gt;= CInt(System.Text.RegularExpressions.Regex.Replace(dtReadRange.Rows(0)(&quot;relate_range_start_08&quot;).ToString().Trim(), &quot;[^0-9]&quot;, String.Empty))]" DisplayName="Check Last Row of Validation File" sap:VirtualizedContainerService.HintSize="502,899" sap2010:WorkflowViewState.IdRef="If_6">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <If.Then>
+                                                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,511" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                                                        <Sequence.Variables>
+                                                          <Variable x:TypeArguments="x:String" Name="strReadRangeDelete" />
+                                                        </Sequence.Variables>
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <Assign sap:VirtualizedContainerService.HintSize="434,115" sap2010:WorkflowViewState.IdRef="Assign_21">
+                                                          <Assign.To>
+                                                            <OutArgument x:TypeArguments="x:String">[strReadRangeDelete]</OutArgument>
+                                                          </Assign.To>
+                                                          <Assign.Value>
+                                                            <InArgument x:TypeArguments="x:String">[dtReadRange.Rows(0)("relate_range_start_08").ToString + ":" + dtReadRange.Rows(0)("relate_range_stop_08").ToString.Replace("?","").Trim + intLastRowIndex.ToString]</InArgument>
+                                                          </Assign.Value>
+                                                        </Assign>
+                                                        <ueab:ClearRangeX DisplayName="Clear Sheet/Range/Table" HasHeaders="False" sap:VirtualizedContainerService.HintSize="434,170" sap2010:WorkflowViewState.IdRef="ClearRangeX_3" TargetRange="[Valid.Sheet(&quot;Condition2&quot;).Range(strReadRangeDelete)]" />
+                                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,166" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Info" Message="[&quot;Clear Range of Condition2 Sheet in Validation_12 = &quot; + strReadRangeDelete]" />
+                                                      </Sequence>
+                                                    </If.Then>
+                                                    <If.Else>
+                                                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,226" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,166" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Info" Message="[&quot;No Data to Clear Range of Condition2 Sheet in Validation_12&quot;]" />
+                                                      </Sequence>
+                                                    </If.Else>
+                                                  </If>
+                                                </Sequence>
+                                                <If Condition="[intLastRowRelateDoc &gt;= CInt(System.Text.RegularExpressions.Regex.Replace(dtReadRange.Rows(0)(&quot;relate_range_start_08&quot;).ToString().Trim(), &quot;[^0-9]&quot;, String.Empty))]" DisplayName="Check Write Data Table" sap:VirtualizedContainerService.HintSize="536,836" sap2010:WorkflowViewState.IdRef="If_7">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
                                                   <If.Then>
-                                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,506" sap2010:WorkflowViewState.IdRef="Sequence_25">
-                                                      <Sequence.Variables>
-                                                        <Variable x:TypeArguments="x:String" Name="strReadRangeDelete" />
-                                                      </Sequence.Variables>
+                                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,448" sap2010:WorkflowViewState.IdRef="Sequence_48">
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                         </scg:Dictionary>
                                                       </sap:WorkflowViewStateService.ViewState>
-                                                      <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_5">
-                                                        <Assign.To>
-                                                          <OutArgument x:TypeArguments="x:String">[strReadRangeDelete]</OutArgument>
-                                                        </Assign.To>
-                                                        <Assign.Value>
-                                                          <InArgument x:TypeArguments="x:String">[dtReadRange.Rows(0)("relate_range_start_08").ToString + ":" + dtReadRange.Rows(0)("relate_range_stop_08").ToString.Replace("?","").Trim + intLastRowIndex.ToString]</InArgument>
-                                                        </Assign.Value>
-                                                      </Assign>
-                                                      <ueab:ClearRangeX DisplayName="Clear Sheet/Range/Table" HasHeaders="False" sap:VirtualizedContainerService.HintSize="434,168" sap2010:WorkflowViewState.IdRef="ClearRangeX_1" TargetRange="[Valid.Sheet(&quot;Condition2&quot;).Range(strReadRangeDelete)]" />
-                                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,164" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Clear Range of Condition2 Sheet in Validation_12 = &quot; + strReadRangeDelete]" />
+                                                      <ueab:WriteRangeX Destination="[Valid.Sheet(&quot;Condition2&quot;).Range(strReadRange)]" DisplayName="Write DataTable to Excel" ExcludeHeaders="True" sap:VirtualizedContainerService.HintSize="382,222" sap2010:WorkflowViewState.IdRef="WriteRangeX_2" IgnoreEmptySource="False" Source="[dtRelateDocument]" />
+                                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,166" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="Info" Message="[&quot;Write Data Table Count = &quot; + dtRelateDocument.RowCount.ToString]" />
                                                     </Sequence>
                                                   </If.Then>
                                                   <If.Else>
-                                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,226" sap2010:WorkflowViewState.IdRef="Sequence_49">
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                         </scg:Dictionary>
                                                       </sap:WorkflowViewStateService.ViewState>
-                                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;No Data to Clear Range of Condition2 Sheet in Validation_12&quot;]" />
+                                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,166" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="Info" Message="[&quot;No Data to Write Range in Condition2&quot;]" />
                                                     </Sequence>
                                                   </If.Else>
                                                 </If>
-                                                <ueab:WriteRangeX Destination="[Valid.Sheet(&quot;Condition2&quot;).Range(strReadRange)]" DisplayName="Write DataTable to Excel" ExcludeHeaders="True" sap:VirtualizedContainerService.HintSize="502,210" sap2010:WorkflowViewState.IdRef="WriteRangeX_2" IgnoreEmptySource="False" Source="[dtRelateDocument]" />
                                               </Sequence>
                                             </Sequence>
                                           </Switch>
@@ -570,17 +1098,17 @@
                                 </Sequence>
                               </If.Then>
                               <If.Else>
-                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,226" sap2010:WorkflowViewState.IdRef="Sequence_7">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Predefined Excel not exists = &quot; + currentDocument]" />
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,166" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Predefined Excel not exists = &quot; + currentDocument]" />
                                 </Sequence>
                               </If.Else>
                             </If>
-                            <Assign sap:VirtualizedContainerService.HintSize="791,105" sap2010:WorkflowViewState.IdRef="Assign_4">
+                            <Assign sap:VirtualizedContainerService.HintSize="780,106" sap2010:WorkflowViewState.IdRef="Assign_4">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:Int32">[intIndex]</OutArgument>
                               </Assign.To>
