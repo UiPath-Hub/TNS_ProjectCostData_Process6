@@ -44,10 +44,39 @@
       {
         "IsEnabled": true,
         "Annotation": null,
+        "Id": "3f7ded49-2e39-44c1-9b2d-6b98d62a094b",
+        "ActivityIdRef": "If_29",
+        "ActivityId": "1.157470",
+        "ActivityName": "Check Rows Count of Target Period",
+        "IsTransient": false
+      },
+      {
+        "IsEnabled": true,
+        "Annotation": null,
+        "Id": "a822fe1c-9754-45e9-83d8-1d6d64752e3d",
+        "ActivityIdRef": "LogAndRecordToDataTable_16",
+        "ActivityId": "1.43162",
+        "ActivityName": "Start log",
+        "IsTransient": false
+      },
+      {
+        "IsEnabled": true,
+        "Annotation": null,
         "Id": "a33cc404-dd72-44fa-99ac-9df904946cce",
         "ActivityIdRef": "If_71",
-        "ActivityId": "1.7245",
+        "ActivityId": "1.7244",
         "ActivityName": "If",
+        "IsTransient": false
+      }
+    ],
+    "Main.xaml": [
+      {
+        "IsEnabled": true,
+        "Annotation": null,
+        "Id": "1d17f4d0-42c7-4245-9868-82f5ce928321",
+        "ActivityIdRef": "If_95",
+        "ActivityId": "1.55837",
+        "ActivityName": "Check Config Project Code",
         "IsTransient": false
       }
     ]

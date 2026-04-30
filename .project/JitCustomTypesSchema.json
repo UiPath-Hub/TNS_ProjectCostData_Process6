@@ -1,0 +1,399 @@
+{
+  "exportedBy": null,
+  "bundleHash": null,
+  "version": "1.0.0.0",
+  "jitAssemblyCompilerCommands": [
+    {
+      "providerName": "CustomEntities",
+      "bundleOptions": {
+        "hash": "1820026219",
+        "bundleName": "Non_Prod__Process7_Commit_Temp_Table_to_Target_Table_Process_Input",
+        "entitiesBundle": {
+          "Types": {
+            "Non_Prod__Process7_Commit_Temp_Table_to_Target_Table_Process_Input": {
+              "name": "Non_Prod__Process7_Commit_Temp_Table_to_Target_Table_Process_Input",
+              "properties": [
+                {
+                  "name": "in_BL_MANUAL_PROCESS",
+                  "type": {
+                    "ClrType": "System.Nullable`1[[System.Boolean, System.Private.CoreLib]], System.Private.CoreLib"
+                  },
+                  "attributes": {
+                    "values": [
+                      {
+                        "Type": {
+                          "ClrType": "Newtonsoft.Json.JsonPropertyAttribute, Newtonsoft.Json"
+                        },
+                        "constructorArguments": [
+                          {
+                            "Value": "\"in_BL_MANUAL_PROCESS\"",
+                            "type": {
+                              "ClrType": "System.String, System.Private.CoreLib"
+                            }
+                          }
+                        ],
+                        "namedArguments": []
+                      },
+                      {
+                        "Type": {
+                          "ClrType": "System.ComponentModel.DisplayNameAttribute, System.ComponentModel.Primitives"
+                        },
+                        "constructorArguments": [
+                          {
+                            "Value": "\"in_BL_MANUAL_PROCESS\"",
+                            "type": {
+                              "ClrType": "System.String, System.Private.CoreLib"
+                            }
+                          }
+                        ],
+                        "namedArguments": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "in_CONFIG_PROJECTCODES",
+                  "type": {
+                    "ClrType": "System.String, System.Private.CoreLib"
+                  },
+                  "attributes": {
+                    "values": [
+                      {
+                        "Type": {
+                          "ClrType": "Newtonsoft.Json.JsonPropertyAttribute, Newtonsoft.Json"
+                        },
+                        "constructorArguments": [
+                          {
+                            "Value": "\"in_CONFIG_PROJECTCODES\"",
+                            "type": {
+                              "ClrType": "System.String, System.Private.CoreLib"
+                            }
+                          }
+                        ],
+                        "namedArguments": []
+                      },
+                      {
+                        "Type": {
+                          "ClrType": "System.ComponentModel.DisplayNameAttribute, System.ComponentModel.Primitives"
+                        },
+                        "constructorArguments": [
+                          {
+                            "Value": "\"in_CONFIG_PROJECTCODES\"",
+                            "type": {
+                              "ClrType": "System.String, System.Private.CoreLib"
+                            }
+                          }
+                        ],
+                        "namedArguments": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "in_OrchestratorQueueFolder",
+                  "type": {
+                    "ClrType": "System.String, System.Private.CoreLib"
+                  },
+                  "attributes": {
+                    "values": [
+                      {
+                        "Type": {
+                          "ClrType": "Newtonsoft.Json.JsonPropertyAttribute, Newtonsoft.Json"
+                        },
+                        "constructorArguments": [
+                          {
+                            "Value": "\"in_OrchestratorQueueFolder\"",
+                            "type": {
+                              "ClrType": "System.String, System.Private.CoreLib"
+                            }
+                          }
+                        ],
+                        "namedArguments": []
+                      },
+                      {
+                        "Type": {
+                          "ClrType": "System.ComponentModel.DisplayNameAttribute, System.ComponentModel.Primitives"
+                        },
+                        "constructorArguments": [
+                          {
+                            "Value": "\"in_OrchestratorQueueFolder\"",
+                            "type": {
+                              "ClrType": "System.String, System.Private.CoreLib"
+                            }
+                          }
+                        ],
+                        "namedArguments": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "in_OrchestratorQueueName",
+                  "type": {
+                    "ClrType": "System.String, System.Private.CoreLib"
+                  },
+                  "attributes": {
+                    "values": [
+                      {
+                        "Type": {
+                          "ClrType": "Newtonsoft.Json.JsonPropertyAttribute, Newtonsoft.Json"
+                        },
+                        "constructorArguments": [
+                          {
+                            "Value": "\"in_OrchestratorQueueName\"",
+                            "type": {
+                              "ClrType": "System.String, System.Private.CoreLib"
+                            }
+                          }
+                        ],
+                        "namedArguments": []
+                      },
+                      {
+                        "Type": {
+                          "ClrType": "System.ComponentModel.DisplayNameAttribute, System.ComponentModel.Primitives"
+                        },
+                        "constructorArguments": [
+                          {
+                            "Value": "\"in_OrchestratorQueueName\"",
+                            "type": {
+                              "ClrType": "System.String, System.Private.CoreLib"
+                            }
+                          }
+                        ],
+                        "namedArguments": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "In_TriggerType",
+                  "type": {
+                    "ClrType": "System.String, System.Private.CoreLib"
+                  },
+                  "attributes": {
+                    "values": [
+                      {
+                        "Type": {
+                          "ClrType": "Newtonsoft.Json.JsonPropertyAttribute, Newtonsoft.Json"
+                        },
+                        "constructorArguments": [
+                          {
+                            "Value": "\"In_TriggerType\"",
+                            "type": {
+                              "ClrType": "System.String, System.Private.CoreLib"
+                            }
+                          }
+                        ],
+                        "namedArguments": []
+                      },
+                      {
+                        "Type": {
+                          "ClrType": "System.ComponentModel.DisplayNameAttribute, System.ComponentModel.Primitives"
+                        },
+                        "constructorArguments": [
+                          {
+                            "Value": "\"In_TriggerType\"",
+                            "type": {
+                              "ClrType": "System.String, System.Private.CoreLib"
+                            }
+                          }
+                        ],
+                        "namedArguments": []
+                      }
+                    ]
+                  }
+                }
+              ],
+              "values": [],
+              "baseType": null
+            }
+          },
+          "Metadata": {},
+          "version": 1
+        }
+      },
+      "entityAssemblyKey": {
+        "name": "UiPath.System.Activities.ViewModels.SWEntities.Non_Prod__Process7_Commit_Temp_Table_to_Target_Table_Process_Input",
+        "hash": "MTgyMDAyNjIxOQ",
+        "assemblyName": "Non_Prod__Process7_C.VtNta2GzF9H1O0hOh1v8d4M4"
+      }
+    },
+    {
+      "providerName": "CustomEntities",
+      "bundleOptions": {
+        "hash": "439184649",
+        "bundleName": "NonProd_Process3_TemplatePreparationProcess2_Input",
+        "entitiesBundle": {
+          "Types": {
+            "NonProd_Process3_TemplatePreparationProcess2_Input": {
+              "name": "NonProd_Process3_TemplatePreparationProcess2_Input",
+              "properties": [
+                {
+                  "name": "in_LinkforPositionNewmonth",
+                  "type": {
+                    "ClrType": "System.String, System.Private.CoreLib"
+                  },
+                  "attributes": {
+                    "values": [
+                      {
+                        "Type": {
+                          "ClrType": "Newtonsoft.Json.JsonPropertyAttribute, Newtonsoft.Json"
+                        },
+                        "constructorArguments": [
+                          {
+                            "Value": "\"in_LinkforPositionNewmonth\"",
+                            "type": {
+                              "ClrType": "System.String, System.Private.CoreLib"
+                            }
+                          }
+                        ],
+                        "namedArguments": []
+                      },
+                      {
+                        "Type": {
+                          "ClrType": "System.ComponentModel.DisplayNameAttribute, System.ComponentModel.Primitives"
+                        },
+                        "constructorArguments": [
+                          {
+                            "Value": "\"in_LinkforPositionNewmonth\"",
+                            "type": {
+                              "ClrType": "System.String, System.Private.CoreLib"
+                            }
+                          }
+                        ],
+                        "namedArguments": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "in_OrchestratorQueueFolder",
+                  "type": {
+                    "ClrType": "System.String, System.Private.CoreLib"
+                  },
+                  "attributes": {
+                    "values": [
+                      {
+                        "Type": {
+                          "ClrType": "Newtonsoft.Json.JsonPropertyAttribute, Newtonsoft.Json"
+                        },
+                        "constructorArguments": [
+                          {
+                            "Value": "\"in_OrchestratorQueueFolder\"",
+                            "type": {
+                              "ClrType": "System.String, System.Private.CoreLib"
+                            }
+                          }
+                        ],
+                        "namedArguments": []
+                      },
+                      {
+                        "Type": {
+                          "ClrType": "System.ComponentModel.DisplayNameAttribute, System.ComponentModel.Primitives"
+                        },
+                        "constructorArguments": [
+                          {
+                            "Value": "\"in_OrchestratorQueueFolder\"",
+                            "type": {
+                              "ClrType": "System.String, System.Private.CoreLib"
+                            }
+                          }
+                        ],
+                        "namedArguments": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "in_OrchestratorQueueName",
+                  "type": {
+                    "ClrType": "System.String, System.Private.CoreLib"
+                  },
+                  "attributes": {
+                    "values": [
+                      {
+                        "Type": {
+                          "ClrType": "Newtonsoft.Json.JsonPropertyAttribute, Newtonsoft.Json"
+                        },
+                        "constructorArguments": [
+                          {
+                            "Value": "\"in_OrchestratorQueueName\"",
+                            "type": {
+                              "ClrType": "System.String, System.Private.CoreLib"
+                            }
+                          }
+                        ],
+                        "namedArguments": []
+                      },
+                      {
+                        "Type": {
+                          "ClrType": "System.ComponentModel.DisplayNameAttribute, System.ComponentModel.Primitives"
+                        },
+                        "constructorArguments": [
+                          {
+                            "Value": "\"in_OrchestratorQueueName\"",
+                            "type": {
+                              "ClrType": "System.String, System.Private.CoreLib"
+                            }
+                          }
+                        ],
+                        "namedArguments": []
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "In_TriggerType",
+                  "type": {
+                    "ClrType": "System.String, System.Private.CoreLib"
+                  },
+                  "attributes": {
+                    "values": [
+                      {
+                        "Type": {
+                          "ClrType": "Newtonsoft.Json.JsonPropertyAttribute, Newtonsoft.Json"
+                        },
+                        "constructorArguments": [
+                          {
+                            "Value": "\"In_TriggerType\"",
+                            "type": {
+                              "ClrType": "System.String, System.Private.CoreLib"
+                            }
+                          }
+                        ],
+                        "namedArguments": []
+                      },
+                      {
+                        "Type": {
+                          "ClrType": "System.ComponentModel.DisplayNameAttribute, System.ComponentModel.Primitives"
+                        },
+                        "constructorArguments": [
+                          {
+                            "Value": "\"In_TriggerType\"",
+                            "type": {
+                              "ClrType": "System.String, System.Private.CoreLib"
+                            }
+                          }
+                        ],
+                        "namedArguments": []
+                      }
+                    ]
+                  }
+                }
+              ],
+              "values": [],
+              "baseType": null
+            }
+          },
+          "Metadata": {},
+          "version": 1
+        }
+      },
+      "entityAssemblyKey": {
+        "name": "UiPath.System.Activities.ViewModels.SWEntities.NonProd_Process3_TemplatePreparationProcess2_Input",
+        "hash": "NDM5MTg0NjQ5",
+        "assemblyName": "NonProd_Process3_Tem.zQ097DEwGL1avvZH2loD9c2"
+      }
+    }
+  ]
+}

@@ -30,11 +30,11 @@
       "DataSourceItems": null
     },
     {
-      "Name": "In_TriggerType",
-      "DisplayName": "In_TriggerType",
+      "Name": "in_TriggerType",
+      "DisplayName": "in_TriggerType",
       "Category": null,
       "Tooltip": null,
-      "Placeholder": null,
+      "Placeholder": "Manual",
       "Widget": null,
       "IsRequired": false,
       "IsPrincipal": true,
